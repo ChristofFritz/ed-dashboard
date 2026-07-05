@@ -1,0 +1,4221 @@
+{
+ "$Codex_Ent_Aleoids_Genus_Name;": {
+  "genus": "Aleoida",
+  "species": [
+   {
+    "name": "Aleoida Arcus",
+    "value": 7252500,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 175.0,
+    "max_temperature": 180.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Aleoida Coronamus",
+    "value": 6284600,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": 190.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Aleoida Spica",
+    "value": 3385200,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 170.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Aleoida Laminiae",
+    "value": 3385200,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Aleoida Gravis",
+    "value": 12934900,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 190.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   }
+  ]
+ },
+ "$Codex_Ent_Sphere_Name;": {
+  "genus": "Anemone",
+  "species": [
+   {
+    "name": "Luteolum Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.044,
+    "max_gravity": 1.28,
+    "min_temperature": 200.0,
+    "max_temperature": 440.0,
+    "volcanism": [
+     "metallic",
+     "silicate",
+     "rocky",
+     "water"
+    ]
+   },
+   {
+    "name": "Croceum Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.047,
+    "max_gravity": 0.37,
+    "min_temperature": 200.0,
+    "max_temperature": 440.0,
+    "volcanism": [
+     "silicate",
+     "rocky",
+     "metallic"
+    ]
+   },
+   {
+    "name": "Puniceum Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.17,
+    "max_gravity": 2.52,
+    "min_temperature": 65.0,
+    "max_temperature": 800.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Puniceum Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.17,
+    "max_gravity": 2.52,
+    "min_temperature": 65.0,
+    "max_temperature": 800.0,
+    "volcanism": [
+     "carbon dioxide geysers"
+    ]
+   },
+   {
+    "name": "Roseum Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.37,
+    "min_temperature": 200.0,
+    "max_temperature": 440.0,
+    "volcanism": [
+     "silicate",
+     "rocky",
+     "metallic"
+    ]
+   },
+   {
+    "name": "Rubeum Bioluminescent Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.036,
+    "max_gravity": 4.61,
+    "min_temperature": 160.0,
+    "max_temperature": 1800.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Prasinum Bioluminescent Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.036,
+    "max_gravity": null,
+    "min_temperature": 110.0,
+    "max_temperature": 3050.0,
+    "volcanism": null
+   },
+   {
+    "name": "Roseum Bioluminescent Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.036,
+    "max_gravity": 4.61,
+    "min_temperature": 400.0,
+    "max_temperature": null,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Blatteum Bioluminescent Anemone",
+    "value": 1499900,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 220.0,
+    "max_temperature": null,
+    "volcanism": "Any"
+   }
+  ]
+ },
+ "$Codex_Ent_Bacterial_Genus_Name;": {
+  "genus": "Bacterium",
+  "species": [
+   {
+    "name": "Bacterium Aurasus",
+    "value": 1000000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.039,
+    "max_gravity": 0.608,
+    "min_temperature": 145.0,
+    "max_temperature": 400.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Nebulus",
+    "value": 5289900,
+    "atmosphere": [
+     "Helium"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.4,
+    "max_gravity": 0.55,
+    "min_temperature": 20.0,
+    "max_temperature": 21.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Nebulus",
+    "value": 5289900,
+    "atmosphere": [
+     "Helium"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.4,
+    "max_gravity": 0.7,
+    "min_temperature": 20.0,
+    "max_temperature": 21.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.15,
+    "max_gravity": 0.26,
+    "min_temperature": 56,
+    "max_temperature": 150,
+    "volcanism": [
+     "carbon dioxide",
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "Helium"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.48,
+    "max_gravity": 0.51,
+    "min_temperature": 20,
+    "max_temperature": 21,
+    "volcanism": [
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.047,
+    "min_temperature": 84,
+    "max_temperature": 110,
+    "volcanism": [
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.61,
+    "min_temperature": 20,
+    "max_temperature": 65,
+    "volcanism": [
+     "carbon dioxide",
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.61,
+    "min_temperature": 20,
+    "max_temperature": 65,
+    "volcanism": [
+     "carbon dioxide",
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.2,
+    "max_gravity": 0.3,
+    "min_temperature": 60,
+    "max_temperature": 70,
+    "volcanism": [
+     "carbon dioxide",
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Scopulum",
+    "value": 4934500,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.27,
+    "max_gravity": 0.4,
+    "min_temperature": 150,
+    "max_temperature": 220,
+    "volcanism": [
+     "carbon dioxide",
+     "methane"
+    ]
+   },
+   {
+    "name": "Bacterium Acies",
+    "value": 1000000,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.255,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 61.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Vesicula",
+    "value": 1000000,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": null,
+    "min_gravity": 0.027,
+    "max_gravity": 0.51,
+    "min_temperature": 50.0,
+    "max_temperature": 245.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Alcyoneum",
+    "value": 1658500,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.376,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.45,
+    "min_temperature": 50.0,
+    "max_temperature": null,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "ArgonRich"
+    ],
+    "body_type": null,
+    "min_gravity": 0.24,
+    "max_gravity": 0.45,
+    "min_temperature": 50.0,
+    "max_temperature": 150.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": null,
+    "min_gravity": 0.025,
+    "max_gravity": 0.23,
+    "min_temperature": 165.0,
+    "max_temperature": 177.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.45,
+    "max_gravity": 0.61,
+    "min_temperature": 300.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "CarbonDioxide",
+     "CarbonDioxideRich"
+    ],
+    "body_type": null,
+    "min_gravity": 0.025,
+    "max_gravity": 0.61,
+    "min_temperature": 167.0,
+    "max_temperature": null,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Helium"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 21.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.026,
+    "max_gravity": 0.126,
+    "min_temperature": 80.0,
+    "max_temperature": 109.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.27,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 95.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.27,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 95.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": null,
+    "min_gravity": 0.21,
+    "max_gravity": 0.35,
+    "min_temperature": 55.0,
+    "max_temperature": 80.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": null,
+    "min_gravity": 0.23,
+    "max_gravity": 0.5,
+    "min_temperature": 150.0,
+    "max_temperature": 240.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.18,
+    "max_gravity": 0.61,
+    "min_temperature": 148.0,
+    "max_temperature": 550.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.18,
+    "max_gravity": 0.61,
+    "min_temperature": 300.0,
+    "max_temperature": 550.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.5,
+    "max_gravity": 0.55,
+    "min_temperature": 500.0,
+    "max_temperature": 650.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.063,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Tela",
+    "value": 1949000,
+    "atmosphere": [
+     "WaterRich"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.315,
+    "max_gravity": 0.44,
+    "min_temperature": 190.0,
+    "max_temperature": 330.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Bacterium Informem",
+    "value": 8418000,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.05,
+    "max_gravity": 0.6,
+    "min_temperature": 42.5,
+    "max_temperature": 151.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Informem",
+    "value": 8418000,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.17,
+    "max_gravity": 0.63,
+    "min_temperature": 50.0,
+    "max_temperature": 90.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Volu",
+    "value": 7774700,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": null,
+    "min_gravity": 0.239,
+    "max_gravity": 0.61,
+    "min_temperature": 143.5,
+    "max_temperature": 246.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Bullaris",
+    "value": 1152500,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": null,
+    "min_gravity": 0.0245,
+    "max_gravity": 0.35,
+    "min_temperature": 67.0,
+    "max_temperature": 109.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Bullaris",
+    "value": 1152500,
+    "atmosphere": [
+     "MethaneRich"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.44,
+    "max_gravity": 0.6,
+    "min_temperature": 74.0,
+    "max_temperature": 141.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.45,
+    "min_temperature": 50.0,
+    "max_temperature": null,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.23,
+    "max_gravity": 0.45,
+    "min_temperature": 80.0,
+    "max_temperature": 90.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "Helium"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.4,
+    "max_gravity": 0.51,
+    "min_temperature": 20.0,
+    "max_temperature": 21.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.0265,
+    "max_gravity": 0.0455,
+    "min_temperature": 84.0,
+    "max_temperature": 108.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.31,
+    "max_gravity": 0.6,
+    "min_temperature": 20.0,
+    "max_temperature": 61.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.27,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 93.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.2,
+    "max_gravity": 0.26,
+    "min_temperature": 60.0,
+    "max_temperature": 80.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Omentum",
+    "value": 4638900,
+    "atmosphere": [
+     "WaterRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.38,
+    "max_gravity": 0.45,
+    "min_temperature": 190.0,
+    "max_temperature": 330.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Bacterium Cerbrus",
+    "value": 1689800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.042,
+    "max_gravity": 0.605,
+    "min_temperature": 132.0,
+    "max_temperature": 500.0,
+    "volcanism": null
+   },
+   {
+    "name": "Bacterium Cerbrus",
+    "value": 1689800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.064,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Cerbrus",
+    "value": 1689800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.064,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Cerbrus",
+    "value": 1689800,
+    "atmosphere": [
+     "WaterRich"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.4,
+    "max_gravity": 0.5,
+    "min_temperature": 190.0,
+    "max_temperature": 330.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "Icy body"
+    ],
+    "min_gravity": 0.03,
+    "max_gravity": 0.09,
+    "min_temperature": 160.0,
+    "max_temperature": 180.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky ice body",
+     "Icy body"
+    ],
+    "min_gravity": 0.165,
+    "max_gravity": 0.33,
+    "min_temperature": 57.5,
+    "max_temperature": 145.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.08,
+    "min_temperature": 80.0,
+    "max_temperature": 90.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "CarbonDioxide",
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "Rocky ice body",
+     "Icy body"
+    ],
+    "min_gravity": 0.25,
+    "max_gravity": 0.32,
+    "min_temperature": 167.0,
+    "max_temperature": 240.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Helium"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.49,
+    "max_gravity": 0.53,
+    "min_temperature": 20.0,
+    "max_temperature": 21.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Rocky ice body",
+     "Icy body"
+    ],
+    "min_gravity": 0.29,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 51.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "NeonRich"
+    ],
+    "body_type": [
+     "Rocky ice body",
+     "Icy body"
+    ],
+    "min_gravity": 0.43,
+    "max_gravity": 0.61,
+    "min_temperature": 20.0,
+    "max_temperature": 65.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.205,
+    "max_gravity": 0.241,
+    "min_temperature": 60.0,
+    "max_temperature": 80.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Rocky ice body",
+     "Icy body"
+    ],
+    "min_gravity": 0.24,
+    "max_gravity": 0.35,
+    "min_temperature": 154.0,
+    "max_temperature": 220.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Bacterium Verrata",
+    "value": 3897000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.054,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   }
+  ]
+ },
+ "$Codex_Ent_Brancae_Name;": {
+  "genus": "Brain Tree",
+  "species": [
+   {
+    "name": "Roseum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": null,
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Gypseeum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 0.42,
+    "min_temperature": 200.0,
+    "max_temperature": 400.0,
+    "volcanism": [
+     "metallic",
+     "rocky",
+     "silicate",
+     "water"
+    ]
+   },
+   {
+    "name": "Ostrinum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "metallic",
+     "rocky",
+     "silicate"
+    ]
+   },
+   {
+    "name": "Viride Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 0.4,
+    "min_temperature": 100.0,
+    "max_temperature": 270.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Aureum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 2.9,
+    "min_temperature": 300.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "metallic",
+     "rocky",
+     "silicate"
+    ]
+   },
+   {
+    "name": "Puniceum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Lindigoticum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 2.7,
+    "min_temperature": 300.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "rocky",
+     "silicate",
+     "metallic"
+    ]
+   },
+   {
+    "name": "Lividum Brain Tree",
+    "value": 1593700,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 0.5,
+    "min_temperature": 300.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "metallic",
+     "rocky",
+     "silicate",
+     "water"
+    ]
+   }
+  ]
+ },
+ "$Codex_Ent_Cactoid_Genus_Name;": {
+  "genus": "Cactoida",
+  "species": [
+   {
+    "name": "Cactoida Cortexum",
+    "value": 3667600,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Cactoida Lapis",
+    "value": 2483600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Cactoida Vermis",
+    "value": 16202800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.265,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 210.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Cactoida Vermis",
+    "value": 16202800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Cactoida Vermis",
+    "value": 16202800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Cactoida Pullulanta",
+    "value": 3667600,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Cactoida Peperatis",
+    "value": 2483600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   }
+  ]
+ },
+ "$Codex_Ent_Clypeus_Genus_Name;": {
+  "genus": "Clypeus",
+  "species": [
+   {
+    "name": "Clypeus Lacrimam",
+    "value": 8418000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 190.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Clypeus Lacrimam",
+    "value": 8418000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Clypeus Lacrimam",
+    "value": 8418000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Clypeus Margaritus",
+    "value": 11873200,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 190.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Clypeus Margaritus",
+    "value": 11873200,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Clypeus Speculumi",
+    "value": 16202800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 190.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Clypeus Speculumi",
+    "value": 16202800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Clypeus Speculumi",
+    "value": 16202800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   }
+  ]
+ },
+ "$Codex_Ent_Conchas_Genus_Name;": {
+  "genus": "Concha",
+  "species": [
+   {
+    "name": "Concha Renibus",
+    "value": 4572400,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.045,
+    "min_temperature": 176.0,
+    "max_temperature": 177.0,
+    "volcanism": [
+     "silicate",
+     "metallic"
+    ]
+   },
+   {
+    "name": "Concha Renibus",
+    "value": 4572400,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Concha Renibus",
+    "value": 4572400,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.15,
+    "min_temperature": 78.0,
+    "max_temperature": 100.0,
+    "volcanism": [
+     "silicate",
+     "metallic"
+    ]
+   },
+   {
+    "name": "Concha Renibus",
+    "value": 4572400,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.65,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Concha Renibus",
+    "value": 4572400,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.65,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Concha Aureolas",
+    "value": 7774700,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Concha Labiata",
+    "value": 2352400,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 150.0,
+    "max_temperature": 200.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Concha Biconcavis",
+    "value": 16777215,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.053,
+    "max_gravity": 0.275,
+    "min_temperature": 42.0,
+    "max_temperature": 52.0,
+    "volcanism": "None"
+   }
+  ]
+ },
+ "$Codex_Ent_Electricae_Genus_Name;": {
+  "genus": "Electricae",
+  "species": [
+   {
+    "name": "Electricae Pluma",
+    "value": 6284600,
+    "atmosphere": [
+     "Argon",
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 150.0,
+    "volcanism": null
+   },
+   {
+    "name": "Electricae Pluma",
+    "value": 6284600,
+    "atmosphere": [
+     "Neon",
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.26,
+    "max_gravity": 0.276,
+    "min_temperature": 20.0,
+    "max_temperature": 70.0,
+    "volcanism": null
+   },
+   {
+    "name": "Electricae Radialem",
+    "value": 6284600,
+    "atmosphere": [
+     "Argon",
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 150.0,
+    "volcanism": null
+   },
+   {
+    "name": "Electricae Radialem",
+    "value": 6284600,
+    "atmosphere": [
+     "Neon",
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.026,
+    "max_gravity": 0.276,
+    "min_temperature": 20.0,
+    "max_temperature": 70.0,
+    "volcanism": null
+   }
+  ]
+ },
+ "$Codex_Ent_Fonticulus_Genus_Name;": {
+  "genus": "Fonticulua",
+  "species": [
+   {
+    "name": "Fonticulua Segmentatus",
+    "value": 19010800,
+    "atmosphere": [
+     "Neon",
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.25,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 75.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fonticulua Campestris",
+    "value": 1000000,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.027,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 150.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fonticulua Upupam",
+    "value": 5727600,
+    "atmosphere": [
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.209,
+    "max_gravity": 0.276,
+    "min_temperature": 61.0,
+    "max_temperature": 125.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fonticulua Lapida",
+    "value": 3111000,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.19,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 81.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fonticulua Fluctus",
+    "value": 20000000,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.235,
+    "max_gravity": 0.276,
+    "min_temperature": 143.0,
+    "max_temperature": 200.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fonticulua Digitos",
+    "value": 1804100,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.07,
+    "min_temperature": 83.0,
+    "max_temperature": 109.0,
+    "volcanism": null
+   }
+  ]
+ },
+ "$Codex_Ent_Shrubs_Genus_Name;": {
+  "genus": "Frutexa",
+  "species": [
+   {
+    "name": "Frutexa Flabellum",
+    "value": 1808900,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Frutexa Acus",
+    "value": 7774700,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.237,
+    "min_temperature": 146.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Frutexa Metallicum",
+    "value": 1632500,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 176.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Frutexa Metallicum",
+    "value": 1632500,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 146.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Frutexa Metallicum",
+    "value": 1632500,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.05,
+    "max_gravity": 0.1,
+    "min_temperature": 100.0,
+    "max_temperature": 300.0,
+    "volcanism": null
+   },
+   {
+    "name": "Frutexa Metallicum",
+    "value": 1632500,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.07,
+    "min_temperature": null,
+    "max_temperature": 400.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Frutexa Flammasis",
+    "value": 10326000,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Frutexa Fera",
+    "value": 1632500,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 146.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Frutexa Sponsae",
+    "value": 5988000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.056,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Frutexa Sponsae",
+    "value": 5988000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.056,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Frutexa Collum",
+    "value": 1639800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 132.0,
+    "max_temperature": 215.0,
+    "volcanism": null
+   },
+   {
+    "name": "Frutexa Collum",
+    "value": 1639800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.265,
+    "max_gravity": 0.276,
+    "min_temperature": 132.0,
+    "max_temperature": 135.0,
+    "volcanism": "None"
+   }
+  ]
+ },
+ "$Codex_Ent_Fumerolas_Genus_Name;": {
+  "genus": "Fumerola",
+  "species": [
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.168,
+    "max_gravity": 0.276,
+    "min_temperature": 57.0,
+    "max_temperature": 150.0,
+    "volcanism": [
+     "carbon",
+     "methane"
+    ]
+   },
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.047,
+    "min_temperature": 84.0,
+    "max_temperature": 110.0,
+    "volcanism": [
+     "methane magma"
+    ]
+   },
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.26,
+    "max_gravity": 0.276,
+    "min_temperature": 40.0,
+    "max_temperature": 60.0,
+    "volcanism": [
+     "carbon",
+     "methane"
+    ]
+   },
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.2,
+    "max_gravity": 0.276,
+    "min_temperature": 57.0,
+    "max_temperature": 70.0,
+    "volcanism": [
+     "carbon",
+     "methane"
+    ]
+   },
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.26,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 180.0,
+    "volcanism": [
+     "carbon"
+    ]
+   },
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.185,
+    "max_gravity": 0.276,
+    "min_temperature": 149.0,
+    "max_temperature": 272.0,
+    "volcanism": [
+     "carbon",
+     "methane"
+    ]
+   },
+   {
+    "name": "Fumerola Carbosis",
+    "value": 6284600,
+    "atmosphere": [
+     "Ammonia",
+     "ArgonRich",
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 0.276,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "carbon"
+    ]
+   },
+   {
+    "name": "Fumerola Extremus",
+    "value": 16202800,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.09,
+    "min_temperature": 161.0,
+    "max_temperature": 177.0,
+    "volcanism": [
+     "silicate",
+     "metallic",
+     "rocky"
+    ]
+   },
+   {
+    "name": "Fumerola Extremus",
+    "value": 16202800,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.07,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 121.0,
+    "volcanism": [
+     "silicate",
+     "metallic",
+     "rocky"
+    ]
+   },
+   {
+    "name": "Fumerola Extremus",
+    "value": 16202800,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.127,
+    "min_temperature": 77.0,
+    "max_temperature": 109.0,
+    "volcanism": [
+     "silicate",
+     "metallic",
+     "rocky"
+    ]
+   },
+   {
+    "name": "Fumerola Extremus",
+    "value": 16202800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.07,
+    "max_gravity": 0.276,
+    "min_temperature": 54.0,
+    "max_temperature": 210.0,
+    "volcanism": [
+     "silicate",
+     "metallic",
+     "rocky"
+    ]
+   },
+   {
+    "name": "Fumerola Extremus",
+    "value": 16202800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.05,
+    "max_gravity": 0.276,
+    "min_temperature": 500.0,
+    "max_temperature": null,
+    "volcanism": [
+     "silicate",
+     "metallic",
+     "rocky"
+    ]
+   },
+   {
+    "name": "Fumerola Nitris",
+    "value": 7500900,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 30.0,
+    "max_temperature": 129.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Fumerola Nitris",
+    "value": 7500900,
+    "atmosphere": [
+     "Argon",
+     "ArgonRich",
+     "NeonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.044,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 141.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Fumerola Nitris",
+    "value": 7500900,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.025,
+    "max_gravity": 0.1,
+    "min_temperature": 83.0,
+    "max_temperature": 109.0,
+    "volcanism": [
+     "nitrogen"
+    ]
+   },
+   {
+    "name": "Fumerola Nitris",
+    "value": 7500900,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.21,
+    "max_gravity": 0.276,
+    "min_temperature": 60.0,
+    "max_temperature": 81.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Fumerola Nitris",
+    "value": 7500900,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": null,
+    "max_gravity": 0.276,
+    "min_temperature": 150.0,
+    "max_temperature": null,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Fumerola Nitris",
+    "value": 7500900,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.21,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 250.0,
+    "volcanism": [
+     "nitrogen",
+     "ammonia"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body",
+     "Rocky body"
+    ],
+    "min_gravity": 0.028,
+    "max_gravity": 0.276,
+    "min_temperature": 161.0,
+    "max_temperature": 177.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Argon",
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.166,
+    "max_gravity": 0.276,
+    "min_temperature": 57.0,
+    "max_temperature": 150.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.25,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 180.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 80.0,
+    "max_temperature": 100.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Neon"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.26,
+    "max_gravity": 0.276,
+    "min_temperature": 20.0,
+    "max_temperature": 60.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.195,
+    "max_gravity": 0.245,
+    "min_temperature": 56.0,
+    "max_temperature": 80.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.23,
+    "max_gravity": 0.276,
+    "min_temperature": 153.0,
+    "max_temperature": 190.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body",
+     "Rocky body"
+    ],
+    "min_gravity": 0.18,
+    "max_gravity": 0.276,
+    "min_temperature": 150.0,
+    "max_temperature": 270.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Fumerola Aquatis",
+    "value": 6284600,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.06,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   }
+  ]
+ },
+ "$Codex_Ent_Fungoids_Genus_Name;": {
+  "genus": "Fungoida",
+  "species": [
+   {
+    "name": "Fungoida Setisis",
+    "value": 1670100,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fungoida Setisis",
+    "value": 1670100,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.033,
+    "max_gravity": 0.276,
+    "min_temperature": 68.0,
+    "max_temperature": 109.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fungoida Setisis",
+    "value": 1670100,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.033,
+    "max_gravity": 0.276,
+    "min_temperature": 67.0,
+    "max_temperature": 109.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fungoida Stabitis",
+    "value": 2680300,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.045,
+    "min_temperature": 172.0,
+    "max_temperature": 177.0,
+    "volcanism": [
+     "silicate"
+    ]
+   },
+   {
+    "name": "Fungoida Stabitis",
+    "value": 2680300,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.2,
+    "max_gravity": 0.23,
+    "min_temperature": 60.0,
+    "max_temperature": 90.0,
+    "volcanism": [
+     "silicate",
+     "rocky"
+    ]
+   },
+   {
+    "name": "Fungoida Stabitis",
+    "value": 2680300,
+    "atmosphere": [
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.3,
+    "max_gravity": 0.5,
+    "min_temperature": 60.0,
+    "max_temperature": 90.0,
+    "volcanism": null
+   },
+   {
+    "name": "Fungoida Stabitis",
+    "value": 2680300,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.0405,
+    "max_gravity": 0.27,
+    "min_temperature": 180.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fungoida Stabitis",
+    "value": 2680300,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.043,
+    "max_gravity": 0.126,
+    "min_temperature": 78.5,
+    "max_temperature": 109.0,
+    "volcanism": [
+     "major silicate"
+    ]
+   },
+   {
+    "name": "Fungoida Stabitis",
+    "value": 2680300,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.039,
+    "max_gravity": 0.064,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fungoida Bullarum",
+    "value": 3703200,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.058,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 129.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fungoida Bullarum",
+    "value": 3703200,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.155,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 70.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fungoida Gelata",
+    "value": 3330300,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.041,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 180.0,
+    "volcanism": [
+     "major silicate"
+    ]
+   },
+   {
+    "name": "Fungoida Gelata",
+    "value": 3330300,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.042,
+    "max_gravity": 0.071,
+    "min_temperature": 160.0,
+    "max_temperature": 180.0,
+    "volcanism": [
+     "major silicate"
+    ]
+   },
+   {
+    "name": "Fungoida Gelata",
+    "value": 3330300,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.042,
+    "max_gravity": 0.071,
+    "min_temperature": 160.0,
+    "max_temperature": 180.0,
+    "volcanism": [
+     "major rocky"
+    ]
+   },
+   {
+    "name": "Fungoida Gelata",
+    "value": 3330300,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.041,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Fungoida Gelata",
+    "value": 3330300,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.044,
+    "max_gravity": 0.125,
+    "min_temperature": 80.0,
+    "max_temperature": 110.0,
+    "volcanism": [
+     "major silicate",
+     "major metallic"
+    ]
+   },
+   {
+    "name": "Fungoida Gelata",
+    "value": 3330300,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.039,
+    "max_gravity": 0.063,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   }
+  ]
+ },
+ "$Codex_Ent_Osseus_Genus_Name;": {
+  "genus": "Osseus",
+  "species": [
+   {
+    "name": "Osseus Fractus",
+    "value": 4027800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Osseus Discus",
+    "value": 12934900,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.088,
+    "min_temperature": 161.0,
+    "max_temperature": 177.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Osseus Discus",
+    "value": 12934900,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.2,
+    "max_gravity": 0.276,
+    "min_temperature": 65.0,
+    "max_temperature": 120.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Osseus Discus",
+    "value": 12934900,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.026,
+    "max_gravity": 0.276,
+    "min_temperature": 500.0,
+    "max_temperature": null,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Osseus Discus",
+    "value": 12934900,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.127,
+    "min_temperature": 80.0,
+    "max_temperature": 110.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Osseus Discus",
+    "value": 12934900,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.055,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": null
+   },
+   {
+    "name": "Osseus Spiralis",
+    "value": 2404700,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 160.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Osseus Pumice",
+    "value": 3156300,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.059,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 135.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Osseus Pumice",
+    "value": 3156300,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.059,
+    "max_gravity": 0.276,
+    "min_temperature": 50.0,
+    "max_temperature": 135.0,
+    "volcanism": [
+     "water",
+     "geysers"
+    ]
+   },
+   {
+    "name": "Osseus Pumice",
+    "value": 3156300,
+    "atmosphere": [
+     "ArgonRich"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.035,
+    "max_gravity": 0.276,
+    "min_temperature": 60.0,
+    "max_temperature": 80.5,
+    "volcanism": "None"
+   },
+   {
+    "name": "Osseus Pumice",
+    "value": 3156300,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.033,
+    "max_gravity": 0.276,
+    "min_temperature": 67.0,
+    "max_temperature": 109.0,
+    "volcanism": null
+   },
+   {
+    "name": "Osseus Pumice",
+    "value": 3156300,
+    "atmosphere": [
+     "Nitrogen"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.05,
+    "max_gravity": 0.276,
+    "min_temperature": 42.0,
+    "max_temperature": 70.1,
+    "volcanism": "None"
+   },
+   {
+    "name": "Osseus Cornibus",
+    "value": 1483000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.0405,
+    "max_gravity": 0.276,
+    "min_temperature": 180.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Osseus Pellebantus",
+    "value": 9739000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.0405,
+    "max_gravity": 0.276,
+    "min_temperature": 191.0,
+    "max_temperature": null,
+    "volcanism": "None"
+   }
+  ]
+ },
+ "$Codex_Ent_Recepta_Genus_Name;": {
+  "genus": "Recepta",
+  "species": [
+   {
+    "name": "Recepta Umbrux",
+    "value": 12934900,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 151.0,
+    "max_temperature": 200.0,
+    "volcanism": null
+   },
+   {
+    "name": "Recepta Umbrux",
+    "value": 12934900,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.23,
+    "max_gravity": 0.276,
+    "min_temperature": 154.0,
+    "max_temperature": 175.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Recepta Umbrux",
+    "value": 12934900,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.23,
+    "max_gravity": 0.276,
+    "min_temperature": 154.0,
+    "max_temperature": 175.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Recepta Umbrux",
+    "value": 12934900,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 132.0,
+    "max_temperature": 273.0,
+    "volcanism": null
+   },
+   {
+    "name": "Recepta Deltahedronix",
+    "value": 16202800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 150.0,
+    "max_temperature": 195.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Recepta Deltahedronix",
+    "value": 16202800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 150.0,
+    "max_temperature": 195.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Recepta Deltahedronix",
+    "value": 16202800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 132.0,
+    "max_temperature": 272.0,
+    "volcanism": null
+   },
+   {
+    "name": "Recepta Conditivus",
+    "value": 14313700,
+    "atmosphere": [
+     "CarbonDioxide",
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "Icy body",
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 150.0,
+    "max_temperature": 195.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Recepta Conditivus",
+    "value": 14313700,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.23,
+    "max_gravity": 0.276,
+    "min_temperature": 154.0,
+    "max_temperature": 175.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Recepta Conditivus",
+    "value": 14313700,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Icy body"
+    ],
+    "min_gravity": 0.23,
+    "max_gravity": 0.276,
+    "min_temperature": 154.0,
+    "max_temperature": 175.0,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Recepta Conditivus",
+    "value": 14313700,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": null,
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 132.0,
+    "max_temperature": 275.0,
+    "volcanism": null
+   }
+  ]
+ },
+ "$Codex_Ent_Ground_Struct_Ice_Name;": {
+  "genus": "Crystalline Shards",
+  "species": [
+   {
+    "name": "Crystalline Shards",
+    "value": 1628800,
+    "atmosphere": [
+     "None",
+     "Argon",
+     "ArgonRich",
+     "CarbonDioxide",
+     "CarbonDioxideRich",
+     "Helium",
+     "Methane",
+     "Neon",
+     "NeonRich"
+    ],
+    "body_type": null,
+    "min_gravity": null,
+    "max_gravity": 2.0,
+    "min_temperature": null,
+    "max_temperature": 273.0,
+    "volcanism": null
+   }
+  ]
+ },
+ "$Codex_Ent_Stratum_Genus_Name;": {
+  "genus": "Stratum",
+  "species": [
+   {
+    "name": "Stratum Excutitus",
+    "value": 2448900,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.48,
+    "min_temperature": 165.0,
+    "max_temperature": 190.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Excutitus",
+    "value": 2448900,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.27,
+    "max_gravity": 0.4,
+    "min_temperature": 165.0,
+    "max_temperature": 190.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Paleas",
+    "value": 1362000,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.35,
+    "min_temperature": 165.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Paleas",
+    "value": 1362000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.585,
+    "min_temperature": 165.0,
+    "max_temperature": 395.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Paleas",
+    "value": 1362000,
+    "atmosphere": [
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.43,
+    "max_gravity": 0.585,
+    "min_temperature": 185.0,
+    "max_temperature": 260.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Paleas",
+    "value": 1362000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.056,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Paleas",
+    "value": 1362000,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.056,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Stratum Paleas",
+    "value": 1362000,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.39,
+    "max_gravity": 0.59,
+    "min_temperature": 165.0,
+    "max_temperature": 250.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Laminamus",
+    "value": 2788300,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.34,
+    "min_temperature": 165.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Araneamus",
+    "value": 2448900,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.26,
+    "max_gravity": 0.57,
+    "min_temperature": 165.0,
+    "max_temperature": 373.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Limaxus",
+    "value": 1362000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.03,
+    "max_gravity": 0.4,
+    "min_temperature": 165.0,
+    "max_temperature": 190.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Limaxus",
+    "value": 1362000,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.27,
+    "max_gravity": 0.4,
+    "min_temperature": 165.0,
+    "max_temperature": 190.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Cucumisis",
+    "value": 16202800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.6,
+    "min_temperature": 191.0,
+    "max_temperature": 371.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Cucumisis",
+    "value": 16202800,
+    "atmosphere": [
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.44,
+    "max_gravity": 0.56,
+    "min_temperature": 210.0,
+    "max_temperature": 246.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Cucumisis",
+    "value": 16202800,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.4,
+    "max_gravity": 0.6,
+    "min_temperature": 200.0,
+    "max_temperature": 250.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Cucumisis",
+    "value": 16202800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.26,
+    "max_gravity": 0.55,
+    "min_temperature": 191.0,
+    "max_temperature": 373.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.38,
+    "min_temperature": 165.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "Argon",
+     "ArgonRich"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.485,
+    "max_gravity": 0.54,
+    "min_temperature": 167.0,
+    "max_temperature": 199.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.61,
+    "min_temperature": 165.0,
+    "max_temperature": 430.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.035,
+    "max_gravity": 0.61,
+    "min_temperature": 165.0,
+    "max_temperature": 260.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "Oxygen"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.4,
+    "max_gravity": 0.52,
+    "min_temperature": 165.0,
+    "max_temperature": 246.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.29,
+    "max_gravity": 0.62,
+    "min_temperature": 165.0,
+    "max_temperature": 450.0,
+    "volcanism": null
+   },
+   {
+    "name": "Stratum Tectonicas",
+    "value": 19010800,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.063,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Frigus",
+    "value": 2637500,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.043,
+    "max_gravity": 0.54,
+    "min_temperature": 191.0,
+    "max_temperature": 365.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Frigus",
+    "value": 2637500,
+    "atmosphere": [
+     "CarbonDioxideRich"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.45,
+    "max_gravity": 0.56,
+    "min_temperature": 200.0,
+    "max_temperature": 250.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Stratum Frigus",
+    "value": 2637500,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.29,
+    "max_gravity": 0.52,
+    "min_temperature": 191.0,
+    "max_temperature": 369.0,
+    "volcanism": null
+   }
+  ]
+ },
+ "$Codex_Ent_Tube_Name;": {
+  "genus": "Sinuous Tubers",
+  "species": [
+   {
+    "name": "Roseum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "rocky magma"
+    ]
+   },
+   {
+    "name": "Prasinum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body",
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": "Any"
+   },
+   {
+    "name": "Prasinum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major rocky magma",
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Prasinum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major rocky magma",
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Albidum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major silicate vapour",
+     "major metallic magma"
+    ]
+   },
+   {
+    "name": "Caeruleum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Caeruleum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Lindigoticum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Violaceum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major rocky magma",
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Viride Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major rocky magma",
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Viride Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "major rocky magma",
+     "major silicate vapour"
+    ]
+   },
+   {
+    "name": "Blatteum Sinuous Tubers",
+    "value": 1514500,
+    "atmosphere": null,
+    "body_type": [
+     "Metal rich body",
+     "High metal content body"
+    ],
+    "min_gravity": null,
+    "max_gravity": null,
+    "min_temperature": 200.0,
+    "max_temperature": 500.0,
+    "volcanism": [
+     "=metallic magma volcanism",
+     "=rocky magma volcanism",
+     "major silicate vapour"
+    ]
+   }
+  ]
+ },
+ "$Codex_Ent_Tubus_Genus_Name;": {
+  "genus": "Tubus",
+  "species": [
+   {
+    "name": "Tubus Conifer",
+    "value": 2415500,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.041,
+    "max_gravity": 0.153,
+    "min_temperature": 160.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tubus Sororibus",
+    "value": 5727600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.152,
+    "min_temperature": 160.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tubus Sororibus",
+    "value": 5727600,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "High metal content body"
+    ],
+    "min_gravity": 0.045,
+    "max_gravity": 0.152,
+    "min_temperature": 160.0,
+    "max_temperature": 195.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tubus Cavas",
+    "value": 11873200,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.152,
+    "min_temperature": 160.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tubus Rosarium",
+    "value": 2637500,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.153,
+    "min_temperature": 160.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tubus Compagibus",
+    "value": 7774700,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.153,
+    "min_temperature": 160.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   }
+  ]
+ },
+ "$Codex_Ent_Tussocks_Genus_Name;": {
+  "genus": "Tussock",
+  "species": [
+   {
+    "name": "Tussock Pennata",
+    "value": 5853800,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.09,
+    "min_temperature": 146.0,
+    "max_temperature": 154.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Ventusa",
+    "value": 3227700,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.13,
+    "min_temperature": 155.0,
+    "max_temperature": 160.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Ignis",
+    "value": 1849000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.2,
+    "min_temperature": 161.0,
+    "max_temperature": 170.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Cultro",
+    "value": 1766600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tussock Catena",
+    "value": 1766600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tussock Pennatis",
+    "value": 1000000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 147.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Serrati",
+    "value": 4447100,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.042,
+    "max_gravity": 0.23,
+    "min_temperature": 171.0,
+    "max_temperature": 174.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Albata",
+    "value": 3252500,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.042,
+    "max_gravity": 0.276,
+    "min_temperature": 175.0,
+    "max_temperature": 180.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Propagito",
+    "value": 1000000,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 145.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Divisa",
+    "value": 1766600,
+    "atmosphere": [
+     "Ammonia"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.042,
+    "max_gravity": 0.276,
+    "min_temperature": 152.0,
+    "max_temperature": 177.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tussock Caputus",
+    "value": 3472400,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.041,
+    "max_gravity": 0.27,
+    "min_temperature": 181.0,
+    "max_temperature": 190.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Triticum",
+    "value": 7774700,
+    "atmosphere": [
+     "CarbonDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 191.0,
+    "max_temperature": 197.0,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Stigmasis",
+    "value": 19010800,
+    "atmosphere": [
+     "SulphurDioxide"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.276,
+    "min_temperature": 132.0,
+    "max_temperature": 180.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tussock Virgam",
+    "value": 14313700,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.065,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": "None"
+   },
+   {
+    "name": "Tussock Virgam",
+    "value": 14313700,
+    "atmosphere": [
+     "Water"
+    ],
+    "body_type": [
+     "Rocky body",
+     "High metal content body"
+    ],
+    "min_gravity": 0.04,
+    "max_gravity": 0.065,
+    "min_temperature": null,
+    "max_temperature": null,
+    "volcanism": [
+     "water"
+    ]
+   },
+   {
+    "name": "Tussock Capillum",
+    "value": 7025800,
+    "atmosphere": [
+     "Argon"
+    ],
+    "body_type": [
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.22,
+    "max_gravity": 0.276,
+    "min_temperature": 80.0,
+    "max_temperature": 129.0,
+    "volcanism": null
+   },
+   {
+    "name": "Tussock Capillum",
+    "value": 7025800,
+    "atmosphere": [
+     "Methane"
+    ],
+    "body_type": [
+     "Rocky body",
+     "Rocky ice body"
+    ],
+    "min_gravity": 0.033,
+    "max_gravity": 0.276,
+    "min_temperature": 80.0,
+    "max_temperature": 110.0,
+    "volcanism": null
+   }
+  ]
+ }
+}

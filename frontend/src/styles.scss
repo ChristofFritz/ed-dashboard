@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/jura-400.woff2') format('woff2');
+}
+
+:root {
+  --bg: #0d0d10;
+  --panel: #16161c;
+  --panel-border: #3a2a18;
+  --accent: #ff7f27;
+  --accent-dim: #b35a1c;
+  --text: #e8e4dc;
+  --text-dim: #8a867e;
+  --ok: #66ccff;
+  --warn: #ffd24d;
+  --danger: #ff4d4d;
+  --font: 'Jura', 'Avenir Next', 'Helvetica Neue', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  /* rem so the FontScaleService's root font-size scales the whole UI */
+  font-size: 0.875rem;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
