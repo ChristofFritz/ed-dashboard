@@ -14,6 +14,7 @@ import { attachWebSocket } from './server/ws.js';
 import { parseJournalLine } from './journal/parse.js';
 import { EdsmClient } from './edsm/client.js';
 import { wireEdsm, runEdsmLookup } from './edsm/wire.js';
+import { CapiService } from './capi/service.js';
 
 async function main() {
   console.log('ed-helper backend starting');
@@ -56,12 +57,16 @@ async function main() {
     void runEdsmLookup(state, edsm, systemName, systemAddress);
   }
 
-  const server = createHttpServer(state);
+  // Fleet carrier via Frontier cAPI (linked separately via OAuth).
+  const capi = new CapiService(db, state);
+
+  const server = createHttpServer(state, capi);
   attachWebSocket(server, state);
   server.listen(config.port, config.host, () => {
     console.log(`listening on http://${config.host}:${config.port}`);
   });
   state.flush();
+  capi.start();
 
   // 4. Live tail.
   const ingest = new JournalIngest(tailer, (batch) => {

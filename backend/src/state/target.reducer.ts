@@ -8,6 +8,10 @@ export function targetReducer(slice: TargetState, e: JournalEvent): TargetState 
   switch (e.event) {
     case 'LoadGame':
       return initialTarget();
+    case 'FSDJump':
+    case 'SupercruiseEntry':
+      // Leaving the target behind — target lock is dropped in-game.
+      return slice.current ? { ...slice, current: null } : slice;
     case 'ShipTargeted': {
       if (!e.TargetLocked) return { ...slice, current: null };
       const prev = slice.current;

@@ -210,12 +210,41 @@ export interface CommanderState {
   statusStale: boolean;
 }
 
+// ── Fleet carrier (Frontier cAPI) ────────────────────────────────────────────
+
+export interface CarrierCommodity {
+  /** Internal commodity id, e.g. "platinum". */
+  name: string;
+  /** Localised display name, e.g. "Platinum". */
+  locName: string;
+  tons: number;
+  /** True if any of the stored tons are stolen. */
+  stolen: boolean;
+  /** cAPI-reported total value of this stack, if provided. */
+  value: number | null;
+}
+
+export interface CarrierState {
+  /** Whether we hold usable Frontier cAPI tokens. */
+  auth: 'unlinked' | 'linked' | 'error';
+  callsign: string | null;
+  name: string | null;
+  /** Stored commodities, aggregated by commodity, tons desc. */
+  cargo: CarrierCommodity[];
+  totalTons: number;
+  /** ISO timestamp of the last successful cAPI fetch. */
+  updatedAt: string | null;
+  /** Human-readable reason when auth==='error' or a fetch failed. */
+  lastError: string | null;
+}
+
 export interface AppState {
   exploration: ExplorationState;
   target: TargetState;
   mining: MiningState;
   session: SessionState;
   commander: CommanderState;
+  carrier: CarrierState;
 }
 
 export type SliceName = keyof AppState;

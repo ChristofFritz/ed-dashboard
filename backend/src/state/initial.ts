@@ -1,5 +1,6 @@
 import type {
   AppState,
+  CarrierState,
   CommanderState,
   ExplorationState,
   MiningState,
@@ -88,6 +89,18 @@ export function initialCommander(): CommanderState {
   };
 }
 
+export function initialCarrier(): CarrierState {
+  return {
+    auth: 'unlinked',
+    callsign: null,
+    name: null,
+    cargo: [],
+    totalTons: 0,
+    updatedAt: null,
+    lastError: null,
+  };
+}
+
 export function initialAppState(): AppState {
   return {
     exploration: initialExploration(),
@@ -95,5 +108,6 @@ export function initialAppState(): AppState {
     mining: initialMining(),
     session: initialSession(),
     commander: initialCommander(),
+    carrier: initialCarrier(),
   };
 }

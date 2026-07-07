@@ -1,15 +1,13 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'ed-panel-frame',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="panel" [class.stale]="stale()" [class.pinned]="pinned()">
-      <header (click)="headerClick.emit()">
+    <section class="panel" [class.stale]="stale()">
+      <header>
         <h2>{{ title() }}</h2>
-        @if (pinned()) {
-          <span class="pin" title="Pinned">📌</span>
-        }
+        <span class="grip" title="Drag to move">⠿</span>
       </header>
       <div class="body">
         <ng-content />
@@ -17,10 +15,15 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
     </section>
   `,
   styles: `
+    :host {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+    }
     .panel {
       display: flex;
+      flex: 1;
       flex-direction: column;
-      height: 100%;
       min-height: 0;
       background: var(--panel);
       border: 1px solid var(--panel-border);
@@ -35,13 +38,18 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
       justify-content: space-between;
       padding: 0.4rem 0.8rem;
       border-bottom: 1px solid var(--panel-border);
-      cursor: pointer;
+      cursor: move;
       user-select: none;
     }
     h2 {
       margin: 0;
       font-size: 0.8rem;
       color: var(--accent);
+    }
+    .grip {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      letter-spacing: -0.15em;
     }
     .body {
       flex: 1;
@@ -54,6 +62,4 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 export class PanelFrame {
   readonly title = input.required<string>();
   readonly stale = input(false);
-  readonly pinned = input(false);
-  readonly headerClick = output<void>();
 }
