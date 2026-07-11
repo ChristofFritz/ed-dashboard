@@ -71,6 +71,25 @@ export interface CargoJson {
   Inventory?: { Name: string; Name_Localised?: string; Count: number; Stolen: number }[];
 }
 
+export interface MarketJson {
+  timestamp: string;
+  event: 'Market';
+  MarketID: number;
+  StationName?: string;
+  StationType?: string;
+  StarSystem?: string;
+  Items?: {
+    id: number;
+    Name: string; // "$steel_name;"
+    Name_Localised?: string;
+    Category?: string;
+    BuyPrice?: number;
+    Stock?: number;
+    Demand?: number;
+    StockBracket?: number;
+  }[];
+}
+
 export interface NavRouteJson {
   timestamp: string;
   event: 'NavRoute' | 'NavRouteClear';

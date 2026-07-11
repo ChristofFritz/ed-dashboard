@@ -25,6 +25,15 @@ export function loc(o: object, field: string): string {
   return m ? m[1]!.replace(/_/g, ' ') : raw;
 }
 
+/**
+ * Normalise a commodity name to its internal id for matching across sources:
+ * depot "$steel_name;" and ship/carrier cargo "steel" both → "steel".
+ */
+export function commodityId(name: string): string {
+  const m = name.match(/^\$(.+)_name;$/i);
+  return (m ? m[1]! : name).toLowerCase();
+}
+
 // ── Startup / meta ──────────────────────────────────────────────────────────
 
 export interface FileheaderEvent extends JournalEventBase {
@@ -106,6 +115,7 @@ export interface StarPosLocation {
   Docked?: boolean;
   StationName?: string;
   StationType?: string;
+  MarketID?: number;
 }
 
 export interface LocationEvent extends JournalEventBase, StarPosLocation {
@@ -167,6 +177,16 @@ export interface UndockedEvent extends JournalEventBase {
   StationName: string;
   StationType?: string;
   MarketID?: number;
+}
+
+export interface ApproachSettlementEvent extends JournalEventBase {
+  event: 'ApproachSettlement';
+  Name: string;
+  Name_Localised?: string;
+  MarketID?: number;
+  SystemAddress?: number;
+  BodyID?: number;
+  BodyName?: string;
 }
 
 export interface ApproachBodyEvent extends JournalEventBase {
@@ -522,6 +542,42 @@ export interface MarketBuyEvent extends JournalEventBase {
   TotalCost: number;
 }
 
+export interface CargoTransferEvent extends JournalEventBase {
+  event: 'CargoTransfer';
+  Transfers: {
+    Type: string;
+    Type_Localised?: string;
+    Count: number;
+    Direction: 'tocarrier' | 'toship' | 'tosrv';
+  }[];
+}
+
+// ── Colonisation / system construction ──────────────────────────────────────
+
+export interface ColonisationResourceRequirement {
+  /** Symbol token, e.g. "$steel_name;". */
+  Name: string;
+  Name_Localised?: string;
+  RequiredAmount: number;
+  ProvidedAmount: number;
+  /** Credits paid per ton delivered. */
+  Payment: number;
+}
+
+/**
+ * Emitted on docking at (and each contribution to) a colonisation construction
+ * site. ResourcesRequired is the server-authoritative shopping list; the
+ * ProvidedAmount deltas between snapshots are how deliveries are tracked.
+ */
+export interface ColonisationConstructionDepotEvent extends JournalEventBase {
+  event: 'ColonisationConstructionDepot';
+  MarketID: number;
+  ConstructionProgress: number; // 0..1
+  ConstructionComplete: boolean;
+  ConstructionFailed: boolean;
+  ResourcesRequired: ColonisationResourceRequirement[];
+}
+
 export interface MissionCompletedEvent extends JournalEventBase {
   event: 'MissionCompleted';
   Faction: string;
@@ -615,6 +671,7 @@ export type JournalEvent =
   | SupercruiseExitEvent
   | DockedEvent
   | UndockedEvent
+  | ApproachSettlementEvent
   | ApproachBodyEvent
   | LeaveBodyEvent
   | TouchdownEvent
@@ -647,6 +704,8 @@ export type JournalEvent =
   | CargoEvent
   | MarketSellEvent
   | MarketBuyEvent
+  | CargoTransferEvent
+  | ColonisationConstructionDepotEvent
   | MissionCompletedEvent
   | MissionAcceptedEvent
   | FuelScoopEvent

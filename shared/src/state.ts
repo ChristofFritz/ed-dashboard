@@ -238,6 +238,66 @@ export interface CarrierState {
   lastError: string | null;
 }
 
+// ── Colonisation (system construction) ───────────────────────────────────────
+
+export interface ColonisationCommodity {
+  /** Internal commodity id, e.g. "steel". Matches CarrierCommodity.name. */
+  name: string;
+  /** Localised display name, e.g. "Steel". */
+  locName: string;
+  /** Total the project wants. */
+  required: number;
+  /** Delivered so far (server truth). */
+  provided: number;
+  /** Credits paid per ton delivered. */
+  payment: number;
+}
+
+export interface ColonisationProject {
+  /** Construction site MarketID — the project's unique key. */
+  marketId: number;
+  stationName: string;
+  systemName: string | null;
+  systemAddress: number | null;
+  /** e.g. "PlanetaryConstructionDepot" / "SpaceConstructionDepot". */
+  stationType: string | null;
+  faction: string | null;
+  progress: number; // 0..1
+  complete: boolean;
+  failed: boolean;
+  commodities: ColonisationCommodity[];
+  /** ISO timestamp of the last depot snapshot. */
+  updatedAt: string;
+}
+
+export interface ColonisationShipItem {
+  name: string;
+  locName: string;
+  tons: number;
+}
+
+export interface DockedMarket {
+  marketId: number;
+  stationName: string;
+  /** Commodities for sale here (stock > 0), keyed by commodity id. */
+  items: { name: string; stock: number; buyPrice: number }[];
+}
+
+export interface ColonisationState {
+  /** All construction sites seen, keyed by marketId; survives restarts. */
+  projects: ColonisationProject[];
+  /** MarketID of the construction site currently docked at, if any. */
+  activeMarketId: number | null;
+  /** Current ship cargo, for the "unload here" view. */
+  shipCargo: ColonisationShipItem[];
+  /** Current ship's cargo capacity in tons (from Loadout) — for trip counts. */
+  shipCapacity: number | null;
+  /** Market at the currently-docked station (from Market.json), else null. */
+  dockedMarket: DockedMarket | null;
+  /** Deleted projects: marketId → ISO time of deletion. Newer depot activity resurrects. */
+  dismissedAt: Record<string, string>;
+}
+
 export interface AppState {
   exploration: ExplorationState;
   target: TargetState;
@@ -245,6 +305,7 @@ export interface AppState {
   session: SessionState;
   commander: CommanderState;
   carrier: CarrierState;
+  colonisation: ColonisationState;
 }
 
 export type SliceName = keyof AppState;
