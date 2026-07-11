@@ -1,4 +1,4 @@
-# ED Helper
+# ED Dashboard
 
 Live dashboard for Elite Dangerous, fed by the game's journal files. Replaces
 Exploration Buddy and adds target, mining, and session panels. Runs alongside

@@ -18,7 +18,7 @@ import { wireEdsm, runEdsmLookup } from './edsm/wire.js';
 import { CapiService } from './capi/service.js';
 
 async function main() {
-  console.log('ed-helper backend starting');
+  console.log('ed-dashboard backend starting');
   console.log(`journal dir: ${config.journalDir}`);
 
   const db = openDatabase();

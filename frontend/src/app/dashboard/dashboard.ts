@@ -51,7 +51,7 @@ function defaultView(): DashboardView {
   template: `
     <div class="shell">
       <header class="topbar">
-        <h1>ED HELPER</h1>
+        <h1>ED DASHBOARD</h1>
         <span class="right">
           <span class="views">
             <span class="vtabs">
