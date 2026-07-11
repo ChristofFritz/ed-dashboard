@@ -79,6 +79,28 @@ export class EventStore {
     ).map((r) => r.json);
   }
 
+  getMeta(key: string): string | null {
+    const row = this.db.prepare('SELECT value FROM meta WHERE key = ?').get(key) as
+      | { value: string }
+      | undefined;
+    return row?.value ?? null;
+  }
+
+  setMeta(key: string, value: string): void {
+    this.db
+      .prepare('INSERT INTO meta (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value')
+      .run(key, value);
+  }
+
+  /** All events of a given type across all files, oldest first. */
+  eventsOfType(event: string): string[] {
+    return (
+      this.db
+        .prepare('SELECT json FROM events WHERE event = ? ORDER BY timestamp, id')
+        .all(event) as { json: string }[]
+    ).map((r) => r.json);
+  }
+
   /** Latest event of a given type across all files (by timestamp). */
   latestEvent<T = unknown>(event: string): T | null {
     const row = this.db

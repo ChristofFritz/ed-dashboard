@@ -1,6 +1,7 @@
 import type {
   AppState,
   CarrierState,
+  ColonisationState,
   CommanderState,
   ExplorationState,
   MiningState,
@@ -101,6 +102,17 @@ export function initialCarrier(): CarrierState {
   };
 }
 
+export function initialColonisation(): ColonisationState {
+  return {
+    projects: [],
+    activeMarketId: null,
+    shipCargo: [],
+    shipCapacity: null,
+    dockedMarket: null,
+    dismissedAt: {},
+  };
+}
+
 export function initialAppState(): AppState {
   return {
     exploration: initialExploration(),
@@ -109,5 +121,6 @@ export function initialAppState(): AppState {
     session: initialSession(),
     commander: initialCommander(),
     carrier: initialCarrier(),
+    colonisation: initialColonisation(),
   };
 }

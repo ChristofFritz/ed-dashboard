@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { config } from '../config.js';
 
-export type SidecarFile = 'Status.json' | 'Cargo.json' | 'NavRoute.json';
-const SIDECAR_FILES: SidecarFile[] = ['Status.json', 'Cargo.json', 'NavRoute.json'];
+export type SidecarFile = 'Status.json' | 'Cargo.json' | 'NavRoute.json' | 'Market.json';
+const SIDECAR_FILES: SidecarFile[] = ['Status.json', 'Cargo.json', 'NavRoute.json', 'Market.json'];
 
 const DEBOUNCE_MS = 200;
 const PARSE_RETRIES = 3;

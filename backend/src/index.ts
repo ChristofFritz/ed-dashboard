@@ -9,6 +9,7 @@ import { watchSidecars } from './sidecar/watcher.js';
 import { applySidecar } from './sidecar/apply.js';
 import { StateStore } from './state/store.js';
 import { registerReducers } from './state/register.js';
+import { seedColonisation } from './state/colonisation.seed.js';
 import { createHttpServer } from './server/http.js';
 import { attachWebSocket } from './server/ws.js';
 import { parseJournalLine } from './journal/parse.js';
@@ -33,6 +34,9 @@ async function main() {
     `backfill done in ${(performance.now() - t0).toFixed(0)}ms — ` +
       `${store.eventCount()} events in db, active file: ${newest ?? 'none'}`,
   );
+
+  // 1b. Seed colonisation projects from full history (survives past sessions).
+  seedColonisation(store, state);
 
   // 2. Hydrate live state by replaying the newest journal (starts at Fileheader,
   //    so session/system state reconstructs exactly).
@@ -60,7 +64,7 @@ async function main() {
   // Fleet carrier via Frontier cAPI (linked separately via OAuth).
   const capi = new CapiService(db, state);
 
-  const server = createHttpServer(state, capi);
+  const server = createHttpServer(state, capi, store);
   attachWebSocket(server, state);
   server.listen(config.port, config.host, () => {
     console.log(`listening on http://${config.host}:${config.port}`);
