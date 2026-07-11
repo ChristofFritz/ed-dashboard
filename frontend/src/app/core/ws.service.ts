@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import type {
   AppState,
   CarrierState,
+  ColonisationState,
   CommanderState,
   ExplorationState,
   JournalEvent,
@@ -23,6 +24,7 @@ export class WsService {
   readonly session = signal<SessionState | null>(null);
   readonly commander = signal<CommanderState | null>(null);
   readonly carrier = signal<CarrierState | null>(null);
+  readonly colonisation = signal<ColonisationState | null>(null);
 
   /** Newest first, capped. */
   readonly recentEvents = signal<JournalEvent[]>([]);
@@ -78,6 +80,7 @@ export class WsService {
     this.session.set(state.session);
     this.commander.set(state.commander);
     this.carrier.set(state.carrier);
+    this.colonisation.set(state.colonisation);
   }
 
   private applySlice<K extends keyof AppState>(slice: K, data: AppState[K]): void {

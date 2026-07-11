@@ -8,7 +8,8 @@
   src: url('/fonts/jura-400.woff2') format('woff2');
 }
 
-:root {
+:root,
+:root[data-theme='dark'] {
   --bg: #0d0d10;
   --panel: #16161c;
   --panel-border: #3a2a18;
@@ -20,6 +21,19 @@
   --warn: #ffd24d;
   --danger: #ff4d4d;
   --font: 'Jura', 'Avenir Next', 'Helvetica Neue', sans-serif;
+}
+
+:root[data-theme='light'] {
+  --bg: #f4f1ea;
+  --panel: #ffffff;
+  --panel-border: #d9ccb6;
+  --accent: #c25610;
+  --accent-dim: #e39b5f;
+  --text: #1c1813;
+  --text-dim: #6d6659;
+  --ok: #0f74a8;
+  --warn: #9a6b00;
+  --danger: #c62828;
 }
 
 * {
@@ -65,4 +79,36 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 500;
+}
+
+/* Row hover across every panel's tables/lists — a faint theme-aware highlight
+   makes each row easier to track. Global so it reaches component internals
+   (emulated encapsulation only scopes a component's own styles). */
+.row,
+.brow,
+.srow,
+.stop,
+.body-row,
+.hl-row,
+.org-row,
+.mat-row,
+.ref-row,
+.hop,
+.ledger-row,
+.earning-row {
+  transition: background-color 0.08s;
+}
+.row:hover,
+.brow:hover,
+.srow:hover,
+.stop:hover,
+.body-row:hover,
+.hl-row:hover,
+.org-row:hover,
+.mat-row:hover,
+.ref-row:hover,
+.hop:hover,
+.ledger-row:hover,
+.earning-row:hover {
+  background-color: color-mix(in srgb, var(--text) 9%, transparent);
 }
