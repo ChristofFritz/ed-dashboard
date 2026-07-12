@@ -8,7 +8,6 @@ WORKDIR /app
 COPY package.json package-lock.json tsconfig.base.json ./
 COPY shared/package.json shared/
 COPY backend/package.json backend/
-COPY client/package.json client/
 COPY frontend/package.json frontend/
 RUN npm ci
 

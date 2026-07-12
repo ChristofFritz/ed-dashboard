@@ -3,6 +3,11 @@
 frontend/.angular
 data
 .git
+.github
 .idea
 .vscode
 *.log
+
+# The Go client isn't part of the server image.
+client
+

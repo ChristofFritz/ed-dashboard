@@ -28,10 +28,11 @@ npm-workspaces monorepo, TypeScript everywhere (Node 26, see `.nvmrc`):
 
 - `shared/` — journal event types, state slice types, WS + API DTOs, journal
   line parser.
-- `client/` — runs on the gaming PC. Tails journal files (polling, Wine-safe)
-  and sidecar files (Status/Cargo/NavRoute/Market), tracks byte offsets locally,
-  and POSTs event batches to the server's `/api/ingest` authenticated with an
-  ingest token. Re-sends are safe (server de-dupes).
+- `client/` — a standalone **Go** binary (no runtime to install) that runs on
+  the gaming PC. Polls the journal folder + sidecar files (Status/Cargo/
+  NavRoute/Market), tracks byte offsets locally, and POSTs event batches to the
+  server's `/api/ingest` authenticated with an ingest token. Re-sends are safe
+  (server de-dupes). Config lives in `~/.ed-dashboard/config.toml`.
 - `backend/` — hosted server on port **3400**. Postgres for storage, email +
   password auth (JWT session cookie), per-user in-memory state stores hydrated
   from history on demand. Receives events over `/api/ingest`, reduces them, and
@@ -64,16 +65,19 @@ a client token.
 
 ## Running the client (on the gaming PC)
 
+Download the binary for your OS/arch from the [Releases](../../releases) page
+(Linux/macOS/Windows, x64 + arm64). Then:
+
 ```bash
-npm install
-ED_SERVER_URL=https://your-host \
-ED_INGEST_TOKEN=<token from the dashboard> \
-npm run start -w client
+./ed-dashboard-client            # first run creates ~/.ed-dashboard/config.toml
+# edit that file: set ingest_token (from the dashboard ⚙ ACCOUNT) and, if
+# needed, journal_dir for your OS
+./ed-dashboard-client            # streams your journals to the server
 ```
 
-`ED_JOURNAL_DIR` defaults to the macOS CrossOver bottle path; override it for
-your OS (e.g. `%USERPROFILE%\Saved Games\Frontier Developments\Elite Dangerous`
-on Windows).
+No runtime required — it's a single static binary. The default `journal_dir`
+is guessed per OS (Windows Saved Games, macOS CrossOver bottle, Linux Proton
+prefix); override it in the config if yours differs.
 
 ## Local development (without Docker)
 
@@ -83,7 +87,7 @@ Needs a Postgres and a Soketi running locally.
 nvm use
 npm install
 DATABASE_URL=postgres://ed:ed@localhost:5432/ed npm run dev   # server :3400 + Angular :4200
-npm run dev:client                                            # the client
+cd client && go run .                                         # the client
 ```
 
 Tests (valuation formulas, reducers, cAPI client):
@@ -106,16 +110,16 @@ npm test
 | `SOKETI_HOST` / `SOKETI_PORT` | `localhost` / `6001` (server→Soketi) |
 | `SOKETI_PUBLIC_HOST/PORT/TLS` | browser→Soketi target       |
 
-**Client**
+**Client** — `~/.ed-dashboard/config.toml` (auto-created on first run)
 
-| Variable              | Default                                   |
-| --------------------- | ----------------------------------------- |
-| `ED_SERVER_URL`       | `http://localhost:3400`                   |
-| `ED_INGEST_TOKEN`     | *(required)*                              |
-| `ED_JOURNAL_DIR`      | CrossOver bottle journal path (config.ts) |
-| `ED_CLIENT_STATE_DIR` | `~/.ed-client` (byte-offset persistence)  |
-| `ED_USE_POLLING`      | `true` (Wine writes need polling)         |
-| `ED_POLL_INTERVAL_MS` | `1000`                                    |
+| Key                | Default                                |
+| ------------------ | -------------------------------------- |
+| `server_url`       | `http://localhost:3400`                |
+| `ingest_token`     | *(required — from the dashboard)*      |
+| `journal_dir`      | OS-specific journal path (guessed)     |
+| `poll_interval_ms` | `1000`                                 |
+
+Byte offsets are persisted alongside it in `~/.ed-dashboard/offsets.json`.
 
 ## Notes
 

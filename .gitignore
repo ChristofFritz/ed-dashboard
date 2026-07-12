@@ -12,5 +12,7 @@ data/
 .env.*
 !.env.example
 
-# Client app local state (byte offsets)
-.ed-client/
+# Locally-built Go client binaries
+/client/ed-dashboard-client
+/client/ed-dashboard-client.exe
+/out/

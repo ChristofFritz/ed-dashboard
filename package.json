@@ -7,12 +7,10 @@
   "workspaces": [
     "shared",
     "backend",
-    "client",
     "frontend"
   ],
   "scripts": {
     "dev": "concurrently -n backend,frontend -c yellow,cyan \"npm run dev -w backend\" \"npm run start -w frontend\"",
-    "dev:client": "npm run dev -w client",
     "build": "npm run build -w frontend && npm run build -w backend",
     "start": "npm run start -w backend",
     "test": "npm run test -w backend"
