@@ -1,7 +1,6 @@
-import type Database from 'better-sqlite3';
+import type { Db } from '../db/pg.js';
 import type { TokenResponse } from './oauth.js';
 
-const META_KEY = 'capi_tokens';
 /** Refresh a bit early to avoid using an access token that expires mid-request. */
 const EXPIRY_SKEW_MS = 60_000;
 
@@ -12,36 +11,52 @@ export interface StoredTokens {
   expiresAt: number;
 }
 
-/** Persist cAPI tokens in the meta table so they survive restarts / prod. */
+/** Persist per-user cAPI tokens in Postgres so they survive restarts. */
 export class TokenStore {
-  constructor(private readonly db: Database.Database) {}
+  constructor(
+    private readonly db: Db,
+    private readonly userId: number,
+  ) {}
 
-  load(): StoredTokens | null {
-    const row = this.db.prepare('SELECT value FROM meta WHERE key = ?').get(META_KEY) as
-      | { value: string }
-      | undefined;
+  async load(): Promise<StoredTokens | null> {
+    const row = (
+      await this.db.query<{
+        access_token: string;
+        refresh_token: string;
+        obtained_at: number;
+        expires_in: number;
+      }>('SELECT access_token, refresh_token, obtained_at, expires_in FROM capi_tokens WHERE user_id = $1', [
+        this.userId,
+      ])
+    ).rows[0];
     if (!row) return null;
-    try {
-      return JSON.parse(row.value) as StoredTokens;
-    } catch {
-      return null;
-    }
+    return {
+      accessToken: row.access_token,
+      refreshToken: row.refresh_token,
+      expiresAt: row.obtained_at + row.expires_in * 1000,
+    };
   }
 
-  save(t: TokenResponse, now: number): StoredTokens {
-    const stored: StoredTokens = {
+  async save(t: TokenResponse, now: number): Promise<StoredTokens> {
+    await this.db.query(
+      `INSERT INTO capi_tokens (user_id, access_token, refresh_token, obtained_at, expires_in)
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (user_id) DO UPDATE SET
+         access_token = excluded.access_token,
+         refresh_token = excluded.refresh_token,
+         obtained_at = excluded.obtained_at,
+         expires_in = excluded.expires_in`,
+      [this.userId, t.access_token, t.refresh_token, now, t.expires_in],
+    );
+    return {
       accessToken: t.access_token,
       refreshToken: t.refresh_token,
       expiresAt: now + t.expires_in * 1000,
     };
-    this.db
-      .prepare('INSERT INTO meta (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value')
-      .run(META_KEY, JSON.stringify(stored));
-    return stored;
   }
 
-  clear(): void {
-    this.db.prepare('DELETE FROM meta WHERE key = ?').run(META_KEY);
+  async clear(): Promise<void> {
+    await this.db.query('DELETE FROM capi_tokens WHERE user_id = $1', [this.userId]);
   }
 
   static isExpired(t: StoredTokens, now: number): boolean {

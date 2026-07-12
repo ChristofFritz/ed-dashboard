@@ -1,6 +1,6 @@
 import chokidar, { FSWatcher } from 'chokidar';
 import path from 'node:path';
-import { config } from '../config.js';
+import { config } from './config.js';
 
 const JOURNAL_RE = /^Journal\.[0-9T.-]+\.log$/;
 
@@ -9,9 +9,9 @@ export function isJournalFile(filePath: string): boolean {
 }
 
 /**
- * Watches the journal directory and invokes onJournalChange for every
- * journal file add/append. chokidar v4 has no glob support, so we watch the
- * directory (depth 0) and filter by filename.
+ * Watches the journal directory and invokes onJournalChange for every journal
+ * file add/append. chokidar v4 has no glob support, so we watch the directory
+ * (depth 0) and filter by filename.
  */
 export function watchJournalDir(onJournalChange: (filePath: string) => void): FSWatcher {
   const watcher = chokidar.watch(config.journalDir, {

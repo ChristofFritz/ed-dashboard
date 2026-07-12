@@ -1,9 +1,5 @@
 {
   "/api": {
     "target": "http://localhost:3400"
-  },
-  "/ws": {
-    "target": "ws://localhost:3400",
-    "ws": true
   }
 }

@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ed
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ed}
+      POSTGRES_DB: ed
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ed -d ed']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # Pusher-compatible websocket server for server -> dashboard updates.
+  soketi:
+    image: quay.io/soketi/soketi:1.6-16-alpine
+    restart: unless-stopped
+    environment:
+      SOKETI_DEFAULT_APP_ID: ${SOKETI_APP_ID:-ed-app}
+      SOKETI_DEFAULT_APP_KEY: ${SOKETI_APP_KEY:-ed-key}
+      SOKETI_DEFAULT_APP_SECRET: ${SOKETI_APP_SECRET:-ed-secret}
+      # Dashboards only receive; they never publish to each other.
+      SOKETI_DEFAULT_APP_ENABLE_CLIENT_MESSAGES: 'false'
+      SOKETI_METRICS_ENABLED: 'false'
+    ports:
+      # Exposed to the browser; SOKETI_PUBLIC_* below must point here.
+      - '${SOKETI_PUBLIC_PORT:-6001}:6001'
+
+  backend:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      soketi:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgres://ed:${POSTGRES_PASSWORD:-ed}@postgres:5432/ed
+      ED_JWT_SECRET: ${ED_JWT_SECRET:-dev-insecure-change-me}
+      ED_SECURE_COOKIES: ${ED_SECURE_COOKIES:-false}
+      # Server -> Soketi (internal docker network).
+      SOKETI_APP_ID: ${SOKETI_APP_ID:-ed-app}
+      SOKETI_APP_KEY: ${SOKETI_APP_KEY:-ed-key}
+      SOKETI_APP_SECRET: ${SOKETI_APP_SECRET:-ed-secret}
+      SOKETI_HOST: soketi
+      SOKETI_PORT: '6001'
+      # Browser -> Soketi (public). Set SOKETI_PUBLIC_HOST to your domain/IP
+      # and SOKETI_PUBLIC_TLS=true behind an HTTPS reverse proxy.
+      SOKETI_PUBLIC_HOST: ${SOKETI_PUBLIC_HOST:-localhost}
+      SOKETI_PUBLIC_PORT: ${SOKETI_PUBLIC_PORT:-6001}
+      SOKETI_PUBLIC_TLS: ${SOKETI_PUBLIC_TLS:-false}
+    ports:
+      - '${ED_PORT:-3400}:3400'
+
+volumes:
+  pgdata:

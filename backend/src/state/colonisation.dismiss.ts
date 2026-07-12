@@ -5,9 +5,9 @@ const KEY = 'colonisation_dismissed';
 /** marketId (string) -> ISO timestamp at which it was dismissed. */
 export type DismissedMap = Record<string, string>;
 
-export function getDismissed(events: EventStore): DismissedMap {
+export async function getDismissed(events: EventStore, userId: number): Promise<DismissedMap> {
   try {
-    return JSON.parse(events.getMeta(KEY) ?? '{}') as DismissedMap;
+    return JSON.parse((await events.getMeta(userId, KEY)) ?? '{}') as DismissedMap;
   } catch {
     return {};
   }
@@ -17,10 +17,15 @@ export function getDismissed(events: EventStore): DismissedMap {
  * Mark a project deleted as of `at`. The seed then hides it unless a newer
  * depot event appears (i.e. you re-dock and work it again), which resurrects it.
  */
-export function dismissProject(events: EventStore, marketId: number, at: string): void {
-  const d = getDismissed(events);
+export async function dismissProject(
+  events: EventStore,
+  userId: number,
+  marketId: number,
+  at: string,
+): Promise<void> {
+  const d = await getDismissed(events, userId);
   d[String(marketId)] = at;
-  events.setMeta(KEY, JSON.stringify(d));
+  await events.setMeta(userId, KEY, JSON.stringify(d));
 }
 
 /** True if a project last updated at `updatedAt` is currently dismissed. */

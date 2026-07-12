@@ -1,4 +1,4 @@
-import type Database from 'better-sqlite3';
+import type { Db } from '../db/pg.js';
 import { config } from '../config.js';
 import type { StateStore } from '../state/store.js';
 import { buildAuthUrl, createPkce, exchangeCode, randomState, refreshTokens } from './oauth.js';
@@ -15,17 +15,23 @@ export class CapiService {
   private readonly pending = new Map<string, string>();
   private timer: NodeJS.Timeout | null = null;
 
-  constructor(db: Database.Database, private readonly store: StateStore) {
-    this.tokens = new TokenStore(db);
+  constructor(db: Db, userId: number, private readonly store: StateStore) {
+    this.tokens = new TokenStore(db, userId);
   }
 
   /** Load any persisted tokens and start polling if linked. */
-  start(): void {
-    const linked = this.tokens.load() !== null;
+  async start(): Promise<void> {
+    const linked = (await this.tokens.load()) !== null;
     this.store.update('carrier', { auth: linked ? 'linked' : 'unlinked' });
     this.timer = setInterval(() => void this.poll(), config.capi.pollIntervalMs);
     this.timer.unref();
     if (linked) void this.poll();
+  }
+
+  /** Stop the poll timer (on user eviction). */
+  stop(): void {
+    if (this.timer) clearInterval(this.timer);
+    this.timer = null;
   }
 
   /** Build the Frontier authorize URL and remember the PKCE verifier for the callback. */
@@ -42,14 +48,14 @@ export class CapiService {
     if (!verifier) throw new Error('unknown or expired OAuth state');
     this.pending.delete(state);
     const res = await exchangeCode(code, verifier);
-    this.tokens.save(res, Date.now());
+    await this.tokens.save(res, Date.now());
     this.store.update('carrier', { auth: 'linked', lastError: null });
     await this.poll();
   }
 
   /** Fetch the carrier now (used by the manual refresh button and the timer). */
   async poll(): Promise<void> {
-    let stored = this.tokens.load();
+    let stored = await this.tokens.load();
     if (!stored) {
       this.store.update('carrier', { auth: 'unlinked' });
       return;
@@ -80,7 +86,7 @@ export class CapiService {
       const msg = err instanceof Error ? err.message : String(err);
       console.error('cAPI poll failed:', msg);
       if (err instanceof AuthError) {
-        this.tokens.clear();
+        await this.tokens.clear();
         this.store.update('carrier', { auth: 'error', lastError: 'Link expired — reconnect.' });
       } else {
         this.store.update('carrier', { lastError: msg });
@@ -92,7 +98,7 @@ export class CapiService {
   private async validAccessToken(stored: StoredTokens): Promise<string> {
     if (!TokenStore.isExpired(stored, Date.now())) return stored.accessToken;
     const res = await refreshTokens(stored.refreshToken);
-    return this.tokens.save(res, Date.now()).accessToken;
+    return (await this.tokens.save(res, Date.now())).accessToken;
   }
 
   /** Fetch once; on a rejected token force one refresh and retry. */
@@ -104,7 +110,7 @@ export class CapiService {
       const res = await refreshTokens(stored.refreshToken).catch(() => {
         throw new AuthError('refresh failed');
       });
-      const fresh = this.tokens.save(res, Date.now());
+      const fresh = await this.tokens.save(res, Date.now());
       return await fetchFleetCarrier(fresh.accessToken);
     }
   }

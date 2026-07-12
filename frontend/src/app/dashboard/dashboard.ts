@@ -20,6 +20,7 @@ import { ThemeService } from '../core/theme.service';
 import { EventTicker } from './event-ticker';
 import { PanelHost } from './panel-host';
 import { ConfirmModal } from '../shared/confirm-modal';
+import { Account } from '../account/account';
 import { Box, isPanelId, PANELS, PANEL_MAP, type PanelId } from './panel-registry';
 
 interface PanelBox extends Box {
@@ -47,7 +48,7 @@ function defaultView(): DashboardView {
 @Component({
   selector: 'ed-dashboard',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [EventTicker, ConfirmModal],
+  imports: [EventTicker, ConfirmModal, Account],
   template: `
     <div class="shell">
       <header class="topbar">
@@ -114,6 +115,7 @@ function defaultView(): DashboardView {
           <span class="conn" [class.on]="ws.connected()">
             {{ ws.connected() ? '● CONNECTED' : '○ DISCONNECTED' }}
           </span>
+          <button (click)="accountOpen.set(true)" title="Account & client setup">⚙ ACCOUNT</button>
         </span>
       </header>
 
@@ -122,6 +124,9 @@ function defaultView(): DashboardView {
       <ed-event-ticker />
     </div>
     <ed-confirm-modal />
+    @if (accountOpen()) {
+      <ed-account (close)="accountOpen.set(false)" />
+    }
   `,
   styles: `
     .shell {
@@ -256,6 +261,7 @@ export class Dashboard implements AfterViewInit, OnDestroy {
   protected readonly activeName = signal<string>('Default');
   protected readonly visible = signal<PanelId[]>([]);
   protected readonly menuOpen = signal(false);
+  protected readonly accountOpen = signal(false);
 
   /** Registered panels not currently shown — the add menu. */
   protected readonly hidden = computed(() =>

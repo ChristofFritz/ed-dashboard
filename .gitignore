@@ -5,3 +5,12 @@ dist/
 data/
 .idea/
 .angular/
+.vscode/
+
+# Local secrets / env — never commit these (only .env.example is tracked).
+.env
+.env.*
+!.env.example
+
+# Client app local state (byte offsets)
+.ed-client/

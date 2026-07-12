@@ -11,16 +11,20 @@
   },
   "dependencies": {
     "@ed/shared": "*",
-    "better-sqlite3": "^12.2.0",
-    "chokidar": "^4.0.3",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
-    "ws": "^8.18.0"
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.0",
+    "pusher": "^5.2.0"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^26.0.0",
-    "@types/ws": "^8.18.0",
+    "@types/pg": "^8.11.10",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0",
     "vitest": "^3.2.0"

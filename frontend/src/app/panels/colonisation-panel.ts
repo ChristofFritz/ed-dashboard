@@ -72,6 +72,16 @@ function initialView(): 'project' | 'all' | 'buy' {
   return v === 'buy' || v === 'all' ? v : 'project';
 }
 
+/** Persisted flag: drop fleet-carrier cargo from need/buy math (cAPI is flaky). */
+const IGNORE_CARRIER_KEY = 'ed-col-ignore-carrier';
+function loadIgnoreCarrier(): boolean {
+  try {
+    return localStorage.getItem(IGNORE_CARRIER_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 @Component({
   selector: 'ed-colonisation-panel',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -103,6 +113,18 @@ function initialView(): 'project' | 'all' | 'buy' {
         </button>
         <button class="tab buy" [class.on]="view() === 'buy'" (click)="view.set('buy')">
           BUY LIST
+        </button>
+        <button
+          class="tab"
+          [class.warn-on]="ignoreCarrier()"
+          (click)="toggleIgnoreCarrier()"
+          [title]="
+            ignoreCarrier()
+              ? 'Carrier cargo is IGNORED — need/buy assume the carrier holds nothing (cAPI unreliable)'
+              : 'Carrier cargo counted toward need/buy. Click to ignore it if cAPI is stale.'
+          "
+        >
+          carrier: {{ ignoreCarrier() ? 'ignored' : 'counted' }}
         </button>
       </div>
 
@@ -351,6 +373,10 @@ function initialView(): 'project' | 'all' | 'buy' {
     .tab.on {
       color: var(--accent);
       border-color: var(--accent);
+    }
+    .tab.warn-on {
+      color: var(--warn);
+      border-color: var(--warn);
     }
     .tab.done {
       opacity: 0.55;
@@ -606,6 +632,18 @@ export class ColonisationPanel {
   protected readonly loadingStops = signal(false);
   /** When true, hide stations whose largest pad can't fit the current ship. */
   protected readonly fitPadOnly = signal(true);
+  /** When true, treat the carrier as empty in need/buy math (cAPI unreliable). */
+  protected readonly ignoreCarrier = signal(loadIgnoreCarrier());
+
+  protected toggleIgnoreCarrier(): void {
+    const next = !this.ignoreCarrier();
+    this.ignoreCarrier.set(next);
+    try {
+      localStorage.setItem(IGNORE_CARRIER_KEY, next ? '1' : '0');
+    } catch {
+      /* ignore storage failures */
+    }
+  }
 
   /** Largest pad the current ship needs (1=S,2=M,3=L), or null if unknown. */
   protected readonly shipPadRank = computed<number | null>(() => {
@@ -651,6 +689,9 @@ export class ColonisationPanel {
   });
 
   private carrierMap(): Map<string, number> {
+    // When cAPI carrier data can't be trusted, pretend the carrier is empty so
+    // need/buy math ignores it entirely.
+    if (this.ignoreCarrier()) return new Map();
     // cAPI reports commodity ids capitalised ("Liquidoxygen"); depot/ship ids
     // are lowercase — normalise so the join lands.
     const m = new Map<string, number>();

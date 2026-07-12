@@ -1,4 +1,4 @@
-import type { Database } from 'better-sqlite3';
+import type { Db } from '../db/pg.js';
 import type { EdsmInterestingBody } from '@ed/shared';
 
 const EDSM_BODIES_URL = 'https://www.edsm.net/api-system-v1/bodies';
@@ -49,13 +49,16 @@ function isInteresting(b: EdsmBody, terraformable: boolean): boolean {
  * network/parse problem so the dashboard degrades to offline mode.
  */
 export class EdsmClient {
-  constructor(private db: Database) {}
+  constructor(private db: Db) {}
 
   async systemBodies(systemName: string, systemAddress: number): Promise<EdsmSystemInfo | null> {
-    const cached = this.db
-      .prepare('SELECT json, fetched_at FROM edsm_cache WHERE system_address = ?')
-      .get(systemAddress) as { json: string; fetched_at: string } | undefined;
-    if (cached && Date.now() - Date.parse(cached.fetched_at) < CACHE_TTL_MS) {
+    const cached = (
+      await this.db.query<{ json: string; fetched_at: Date }>(
+        'SELECT json, fetched_at FROM edsm_cache WHERE system_address = $1',
+        [systemAddress],
+      )
+    ).rows[0];
+    if (cached && Date.now() - cached.fetched_at.getTime() < CACHE_TTL_MS) {
       return this.parse(cached.json);
     }
 
@@ -65,12 +68,11 @@ export class EdsmClient {
       });
       if (!res.ok) return null;
       const text = await res.text();
-      this.db
-        .prepare(
-          'INSERT INTO edsm_cache (system_address, json, fetched_at) VALUES (?, ?, ?) ' +
-            'ON CONFLICT(system_address) DO UPDATE SET json = excluded.json, fetched_at = excluded.fetched_at',
-        )
-        .run(systemAddress, text, new Date().toISOString());
+      await this.db.query(
+        'INSERT INTO edsm_cache (system_address, json, fetched_at) VALUES ($1, $2, now()) ' +
+          'ON CONFLICT(system_address) DO UPDATE SET json = excluded.json, fetched_at = excluded.fetched_at',
+        [systemAddress, text],
+      );
       return this.parse(text);
     } catch {
       return null; // offline / timeout — stale cache is still better than nothing

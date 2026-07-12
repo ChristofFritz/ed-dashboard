@@ -1,10 +1,10 @@
 import chokidar, { FSWatcher } from 'chokidar';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { config } from '../config.js';
+import type { SidecarFileName } from '@ed/shared';
+import { config } from './config.js';
 
-export type SidecarFile = 'Status.json' | 'Cargo.json' | 'NavRoute.json' | 'Market.json';
-const SIDECAR_FILES: SidecarFile[] = ['Status.json', 'Cargo.json', 'NavRoute.json', 'Market.json'];
+const SIDECAR_FILES: SidecarFileName[] = ['Status.json', 'Cargo.json', 'NavRoute.json', 'Market.json'];
 
 const DEBOUNCE_MS = 200;
 const PARSE_RETRIES = 3;
@@ -16,12 +16,10 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
  * Watches the game's sidecar JSON files. The game rewrites them whole and
  * non-atomically, so reads are debounced and JSON.parse failures retried.
  */
-export function watchSidecars(
-  onChange: (file: SidecarFile, data: unknown) => void,
-): FSWatcher {
-  const timers = new Map<SidecarFile, NodeJS.Timeout>();
+export function watchSidecars(onChange: (file: SidecarFileName, data: unknown) => void): FSWatcher {
+  const timers = new Map<SidecarFileName, NodeJS.Timeout>();
 
-  const readAndEmit = async (file: SidecarFile) => {
+  const readAndEmit = async (file: SidecarFileName) => {
     const fullPath = path.join(config.journalDir, file);
     for (let attempt = 0; attempt < PARSE_RETRIES; attempt++) {
       try {
@@ -38,15 +36,11 @@ export function watchSidecars(
 
   const watcher = chokidar.watch(
     SIDECAR_FILES.map((f) => path.join(config.journalDir, f)),
-    {
-      usePolling: config.usePolling,
-      interval: config.pollIntervalMs,
-      alwaysStat: true,
-    },
+    { usePolling: config.usePolling, interval: config.pollIntervalMs, alwaysStat: true },
   );
 
   const handle = (filePath: string) => {
-    const file = path.basename(filePath) as SidecarFile;
+    const file = path.basename(filePath) as SidecarFileName;
     if (!SIDECAR_FILES.includes(file)) return;
     clearTimeout(timers.get(file));
     timers.set(file, setTimeout(() => void readAndEmit(file), DEBOUNCE_MS));

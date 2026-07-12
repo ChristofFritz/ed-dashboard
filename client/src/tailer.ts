@@ -1,13 +1,15 @@
 import { open } from 'node:fs/promises';
 import path from 'node:path';
-import { parseJournalLine } from './parse.js';
-import type { JournalEvent } from '@ed/shared';
+import { parseJournalLine } from '@ed/shared';
 
 export interface TailBatch {
   filename: string;
-  events: { lineNo: number; raw: string; event: JournalEvent }[];
+  /** Raw journal lines to forward, with their physical line numbers. */
+  events: { lineNo: number; raw: string }[];
   /** byte offset after consuming this batch (only complete lines) */
   newOffset: number;
+  /** total complete lines consumed so far (for offset persistence) */
+  newLineNo: number;
 }
 
 interface FileCursor {
@@ -20,14 +22,14 @@ const NEWLINE = 0x0a;
 /**
  * Offset-tracked tailer for journal files. Each poll reads bytes past the
  * cursor and consumes only complete (newline-terminated) lines; a trailing
- * partial line stays on disk and is re-read next poll. Offsets therefore
- * always sit on line boundaries, so a consumer persisting `newOffset` never
- * loses or duplicates events across restarts.
+ * partial line stays on disk and is re-read next poll. Offsets always sit on
+ * line boundaries, so persisting `newOffset`/`newLineNo` never loses or
+ * duplicates events across restarts.
  */
 export class JournalTailer {
   private cursors = new Map<string, FileCursor>();
 
-  /** Seed a cursor (e.g. from persisted DB offsets) before the first poll. */
+  /** Seed a cursor (e.g. from persisted offsets) before the first poll. */
   seed(filename: string, offset: number, lineNo: number): void {
     this.cursors.set(filename, { offset, lineNo });
   }
@@ -71,14 +73,14 @@ export class JournalTailer {
         if (data[i] !== NEWLINE) continue;
         const line = data.subarray(start, i).toString('utf8');
         cursor.lineNo++;
-        const event = parseJournalLine(line);
-        if (event) events.push({ lineNo: cursor.lineNo, raw: line.trim(), event });
+        // Only forward well-formed events (matches server-side parsing).
+        if (parseJournalLine(line)) events.push({ lineNo: cursor.lineNo, raw: line.trim() });
         start = i + 1;
       }
       cursor.offset += start; // only complete lines; partial tail re-read next poll
 
       if (events.length === 0) return null;
-      return { filename, events, newOffset: cursor.offset };
+      return { filename, events, newOffset: cursor.offset, newLineNo: cursor.lineNo };
     } finally {
       await fh.close();
     }

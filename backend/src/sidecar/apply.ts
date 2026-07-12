@@ -1,7 +1,8 @@
-import type { CargoJson, MarketJson, NavRouteJson, StatusJson } from '@ed/shared';
+import type { CargoJson, MarketJson, NavRouteJson, SidecarFileName, StatusJson } from '@ed/shared';
 import { commodityId, loc } from '@ed/shared';
 import type { StateStore } from '../state/store.js';
-import type { SidecarFile } from './watcher.js';
+
+export type SidecarFile = SidecarFileName;
 
 const SCOOPABLE = new Set(['K', 'G', 'B', 'F', 'O', 'A', 'M']);
 

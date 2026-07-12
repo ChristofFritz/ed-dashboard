@@ -18,10 +18,14 @@ import { getDismissed, isDismissed } from './colonisation.dismiss.js';
  * visited in past sessions survive a restart. The newest-journal hydration
  * replay runs after this and refreshes any project touched this session.
  */
-export function seedColonisation(events: EventStore, store: StateStore): void {
+export async function seedColonisation(
+  events: EventStore,
+  userId: number,
+  store: StateStore,
+): Promise<void> {
   // Station metadata per construction MarketID, from Docked events (latest wins).
   const meta = new Map<number, DockedEvent>();
-  for (const json of events.eventsOfType('Docked')) {
+  for (const json of await events.eventsOfType(userId, 'Docked')) {
     const d = JSON.parse(json) as DockedEvent;
     if (d.MarketID != null && d.StationType && CONSTRUCTION_STATION_TYPES.has(d.StationType)) {
       meta.set(d.MarketID, d);
@@ -30,7 +34,7 @@ export function seedColonisation(events: EventStore, store: StateStore): void {
 
   // Latest depot snapshot per MarketID.
   const depots = new Map<number, ColonisationConstructionDepotEvent>();
-  for (const json of events.eventsOfType('ColonisationConstructionDepot')) {
+  for (const json of await events.eventsOfType(userId, 'ColonisationConstructionDepot')) {
     const dp = JSON.parse(json) as ColonisationConstructionDepotEvent;
     depots.set(dp.MarketID, dp);
   }
@@ -39,26 +43,26 @@ export function seedColonisation(events: EventStore, store: StateStore): void {
   // surface in Undocked/Location/ApproachSettlement, not a fresh Docked.
   const nameByMarket = new Map<number, string>();
   const nameEvents: { ts: string; marketId: number; name: string }[] = [];
-  for (const json of events.eventsOfType('Docked')) {
+  for (const json of await events.eventsOfType(userId, 'Docked')) {
     const e = JSON.parse(json) as DockedEvent;
     if (e.MarketID != null && e.StationName) nameEvents.push({ ts: e.timestamp, marketId: e.MarketID, name: e.StationName });
   }
-  for (const json of events.eventsOfType('Undocked')) {
+  for (const json of await events.eventsOfType(userId, 'Undocked')) {
     const e = JSON.parse(json) as UndockedEvent;
     if (e.MarketID != null && e.StationName) nameEvents.push({ ts: e.timestamp, marketId: e.MarketID, name: e.StationName });
   }
-  for (const json of events.eventsOfType('Location')) {
+  for (const json of await events.eventsOfType(userId, 'Location')) {
     const e = JSON.parse(json) as LocationEvent;
     if (e.MarketID != null && e.StationName) nameEvents.push({ ts: e.timestamp, marketId: e.MarketID, name: e.StationName });
   }
-  for (const json of events.eventsOfType('ApproachSettlement')) {
+  for (const json of await events.eventsOfType(userId, 'ApproachSettlement')) {
     const e = JSON.parse(json) as ApproachSettlementEvent;
     if (e.MarketID != null && e.Name) nameEvents.push({ ts: e.timestamp, marketId: e.MarketID, name: e.Name });
   }
   nameEvents.sort((a, b) => (a.ts < b.ts ? -1 : a.ts > b.ts ? 1 : 0));
   for (const n of nameEvents) nameByMarket.set(n.marketId, n.name);
 
-  const dismissed = getDismissed(events);
+  const dismissed = await getDismissed(events, userId);
   const marketIds = new Set<number>([...meta.keys(), ...depots.keys()]);
   const projects: ColonisationProject[] = [];
   for (const marketId of marketIds) {
@@ -89,7 +93,7 @@ export function seedColonisation(events: EventStore, store: StateStore): void {
   }
 
   // Ship cargo capacity from the most recent Loadout (0 = no cargo hold).
-  const loadouts = events.eventsOfType('Loadout');
+  const loadouts = await events.eventsOfType(userId, 'Loadout');
   const lastLoadout = loadouts.length
     ? (JSON.parse(loadouts[loadouts.length - 1]!) as LoadoutEvent)
     : null;
