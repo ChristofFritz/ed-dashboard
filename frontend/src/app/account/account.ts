@@ -21,9 +21,9 @@ import { AuthService } from '../core/auth.service';
       <section>
         <h3>CLIENT TOKENS</h3>
         <p class="hint">
-          Run the ED Dashboard client on the PC where Elite Dangerous is installed. It reads your
-          journal files and streams them here. Create a token and give it to the client via
-          <code>ED_INGEST_TOKEN</code>.
+          Run the ED Dashboard client app on the PC where Elite Dangerous is installed. It reads
+          your journal files and streams them here. Create a token below and paste it into the
+          client's window.
         </p>
 
         <div class="new">
@@ -52,15 +52,6 @@ import { AuthService } from '../core/auth.service';
             }
           </ul>
         }
-      </section>
-
-      <section>
-        <h3>RUN THE CLIENT</h3>
-        <pre>
-ED_SERVER_URL={{ origin }} \
-ED_INGEST_TOKEN=&lt;your token&gt; \
-npm run start -w client</pre
-        >
       </section>
 
       <footer>
@@ -209,7 +200,6 @@ export class Account implements OnInit {
   protected readonly created = signal<IngestTokenCreated | null>(null);
   protected readonly busy = signal(false);
   protected label = '';
-  protected readonly origin = location.origin;
 
   async ngOnInit(): Promise<void> {
     await this.refresh();

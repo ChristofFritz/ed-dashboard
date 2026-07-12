@@ -47,9 +47,11 @@ services:
       SOKETI_APP_SECRET: ${SOKETI_APP_SECRET:-ed-secret}
       SOKETI_HOST: soketi
       SOKETI_PORT: '6001'
-      # Browser -> Soketi (public). Set SOKETI_PUBLIC_HOST to your domain/IP
-      # and SOKETI_PUBLIC_TLS=true behind an HTTPS reverse proxy.
-      SOKETI_PUBLIC_HOST: ${SOKETI_PUBLIC_HOST:-localhost}
+      # Browser -> Soketi (public). Leave SOKETI_PUBLIC_HOST empty to use the
+      # host the dashboard is opened from (localhost, LAN IP, or domain). Only
+      # set it if Soketi runs on a different host; set SOKETI_PUBLIC_TLS=true
+      # behind an HTTPS reverse proxy.
+      SOKETI_PUBLIC_HOST: ${SOKETI_PUBLIC_HOST:-}
       SOKETI_PUBLIC_PORT: ${SOKETI_PUBLIC_PORT:-6001}
       SOKETI_PUBLIC_TLS: ${SOKETI_PUBLIC_TLS:-false}
     ports:

@@ -59,11 +59,18 @@ export class WsService {
       console.error('failed to load state snapshot', err);
     }
 
+    // Default to the host the dashboard is served from (so remote/LAN/hosted
+    // access works), and to wss automatically when the page is HTTPS. The
+    // server can still override host/port/TLS via SOKETI_PUBLIC_* if needed.
+    const isHttps = location.protocol === 'https:';
+    const wsHost = cfg.pusher.wsHost || location.hostname;
+    const forceTLS = cfg.pusher.forceTLS || isHttps;
+
     const pusher = new Pusher(cfg.pusher.key, {
-      wsHost: cfg.pusher.wsHost,
+      wsHost,
       wsPort: cfg.pusher.wsPort,
       wssPort: cfg.pusher.wsPort,
-      forceTLS: cfg.pusher.forceTLS,
+      forceTLS,
       enabledTransports: ['ws', 'wss'],
       cluster: cfg.pusher.cluster,
       channelAuthorization: {

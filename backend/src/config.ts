@@ -33,8 +33,10 @@ export const config = {
     host: process.env.SOKETI_HOST ?? 'localhost',
     port: Number(process.env.SOKETI_PORT ?? 6001),
     useTLS: process.env.SOKETI_USE_TLS === 'true',
-    // What the browser should connect to (public). Defaults to same as internal.
-    publicHost: process.env.SOKETI_PUBLIC_HOST ?? process.env.SOKETI_HOST ?? 'localhost',
+    // What the browser connects to (public). Empty host => the dashboard uses
+    // whatever host it was served from (works for localhost, LAN IP, or a
+    // domain). Set SOKETI_PUBLIC_HOST only if Soketi lives on a different host.
+    publicHost: process.env.SOKETI_PUBLIC_HOST ?? '',
     publicPort: Number(process.env.SOKETI_PUBLIC_PORT ?? process.env.SOKETI_PORT ?? 6001),
     publicTLS: process.env.SOKETI_PUBLIC_TLS === 'true',
     cluster: process.env.SOKETI_CLUSTER ?? 'mt1',
