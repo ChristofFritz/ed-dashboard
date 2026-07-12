@@ -139,7 +139,7 @@ func runGUI(cfg Config, path string, created bool) {
 	engine := NewEngine(appendLog, updateStatus)
 	engine.SetConfig(cfg)
 
-	var startBtn, stopBtn, saveBtn *widget.Button
+	var startBtn, stopBtn, saveBtn, resendBtn *widget.Button
 
 	readForm := func() Config {
 		return Config{
@@ -194,6 +194,18 @@ func runGUI(cfg Config, path string, created bool) {
 	})
 	stopBtn.Disable()
 
+	resendBtn = widget.NewButton("Re-send all", func() {
+		if strings.TrimSpace(tokenEntry.Text) == "" {
+			appendLog("set your ingest token before re-sending")
+			return
+		}
+		if !save() {
+			return
+		}
+		engine.ResendAll()
+		setRunning(true)
+	})
+
 	// Journal dir field with a Browse button that doesn't get cramped.
 	journalRow := container.NewBorder(nil, nil, nil, browseBtn, journalEntry)
 
@@ -205,7 +217,7 @@ func runGUI(cfg Config, path string, created bool) {
 
 	dot := container.NewGridWrap(fyne.NewSize(14, 14), statusDot)
 	statusBar := container.NewHBox(dot, statusLabel)
-	buttons := container.NewHBox(saveBtn, startBtn, stopBtn)
+	buttons := container.NewHBox(saveBtn, startBtn, stopBtn, resendBtn)
 
 	// Hidden until a newer release is found. Clicking opens the download page.
 	updateLink := widget.NewHyperlink("", nil)

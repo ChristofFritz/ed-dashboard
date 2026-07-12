@@ -121,10 +121,12 @@ double-click it:
 - **Linux** — `ed-dashboard-client-linux-{x64,arm64}` (mark executable; needs a
   desktop with OpenGL)
 
-A window opens with the config, a Start/Stop button, a status light, and a live
-log. Paste your ingest token (from the dashboard **⚙ ACCOUNT**), pick the
-journal folder (a ✓/⚠ hint shows whether it holds journal files, or use
-**Browse…**), and hit **Start**. Settings are saved to
+A window opens with the config, Start/Stop + **Re-send all** buttons, a status
+light, and a live log. Paste your ingest token (from the dashboard
+**⚙ ACCOUNT**), pick the journal folder (a ✓/⚠ hint shows whether it holds
+journal files, or use **Browse…**), and hit **Start**. **Re-send all** forgets
+the saved offsets and re-streams every journal from the start (the server
+de-dupes, so it never double-counts). Settings are saved to
 `~/.ed-dashboard/config.toml`. The default `journal_dir` is guessed per OS
 (Windows Saved Games, macOS CrossOver bottle, Linux Proton prefix).
 

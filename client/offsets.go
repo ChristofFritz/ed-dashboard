@@ -36,6 +36,19 @@ func (o *Offsets) Get(name string) Cursor {
 	return o.data[name]
 }
 
+// Clear forgets all cursors (and persists the empty state) so the next poll
+// re-reads every journal from the start.
+func (o *Offsets) Clear() {
+	o.mu.Lock()
+	o.data = map[string]Cursor{}
+	b, _ := json.Marshal(o.data)
+	o.mu.Unlock()
+	tmp := o.path + ".tmp"
+	if os.WriteFile(tmp, b, 0o600) == nil {
+		_ = os.Rename(tmp, o.path)
+	}
+}
+
 func (o *Offsets) Set(name string, c Cursor) {
 	o.mu.Lock()
 	o.data[name] = c

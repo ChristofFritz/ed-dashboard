@@ -144,6 +144,32 @@ func (e *Engine) Running() bool {
 	return e.running
 }
 
+func (e *Engine) sidecarStamp(file string) string {
+	e.mu.Lock()
+	defer e.mu.Unlock()
+	return e.sidecarSeen[file]
+}
+
+func (e *Engine) setSidecarStamp(file, stamp string) {
+	e.mu.Lock()
+	e.sidecarSeen[file] = stamp
+	e.mu.Unlock()
+}
+
+// ResendAll forgets all journal offsets + sidecar stamps so everything is
+// streamed again from the start. Safe to call while running; starts the engine
+// if it's stopped. (The server de-dupes, so re-sends never double-count.)
+func (e *Engine) ResendAll() {
+	e.offsets.Clear()
+	e.mu.Lock()
+	e.sidecarSeen = map[string]string{}
+	e.mu.Unlock()
+	e.log("re-sending all journals from the start…")
+	if !e.Running() {
+		e.Start()
+	}
+}
+
 // Start begins the sync loop in the background. No-op if already running.
 func (e *Engine) Start() {
 	e.mu.Lock()
@@ -289,7 +315,7 @@ func (e *Engine) scanSidecars(ctx context.Context) {
 			continue
 		}
 		stamp := fmt.Sprintf("%d:%d", st.ModTime().UnixNano(), st.Size())
-		if e.sidecarSeen[file] == stamp {
+		if e.sidecarStamp(file) == stamp {
 			continue
 		}
 		raw, ok := readJSONWithRetry(full)
@@ -302,7 +328,7 @@ func (e *Engine) scanSidecars(ctx context.Context) {
 			}
 			continue
 		}
-		e.sidecarSeen[file] = stamp
+		e.setSidecarStamp(file, stamp)
 	}
 }
 
