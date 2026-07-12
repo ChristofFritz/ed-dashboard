@@ -67,10 +67,13 @@ export interface IngestResponse {
 
 export interface PusherConfig {
   key: string;
-  wsHost: string;
-  wsPort: number;
-  forceTLS: boolean;
   cluster: string;
+  /**
+   * Same-origin path the Soketi websocket is proxied under (e.g. "/soketi").
+   * The dashboard connects to its own host/port/scheme + this path, so it works
+   * over plain HTTP, HTTPS, LAN, or a domain without exposing Soketi directly.
+   */
+  wsPath: string;
 }
 
 /** Runtime config the dashboard fetches at boot (no secrets). */

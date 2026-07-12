@@ -33,13 +33,11 @@ export const config = {
     host: process.env.SOKETI_HOST ?? 'localhost',
     port: Number(process.env.SOKETI_PORT ?? 6001),
     useTLS: process.env.SOKETI_USE_TLS === 'true',
-    // What the browser connects to (public). Empty host => the dashboard uses
-    // whatever host it was served from (works for localhost, LAN IP, or a
-    // domain). Set SOKETI_PUBLIC_HOST only if Soketi lives on a different host.
-    publicHost: process.env.SOKETI_PUBLIC_HOST ?? '',
-    publicPort: Number(process.env.SOKETI_PUBLIC_PORT ?? process.env.SOKETI_PORT ?? 6001),
-    publicTLS: process.env.SOKETI_PUBLIC_TLS === 'true',
     cluster: process.env.SOKETI_CLUSTER ?? 'mt1',
+    // Same-origin path the browser's Soketi websocket is proxied under. The
+    // server upgrades this path to Soketi, so the dashboard never needs a
+    // separate Soketi host/port and inherits the page's http/https scheme.
+    wsPath: process.env.SOKETI_WS_PATH ?? '/soketi',
   },
 
   // Frontier Companion API (fleet carrier cargo), per-user OAuth. client_id is

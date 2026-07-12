@@ -1,5 +1,6 @@
 import express from 'express';
 import http from 'node:http';
+import httpProxy from 'http-proxy';
 import cookieParser from 'cookie-parser';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,10 +51,8 @@ export function createHttpServer(deps: HttpDeps): http.Server {
       channel: channelFor(user.id),
       pusher: {
         key: config.pusher.key,
-        wsHost: config.pusher.publicHost,
-        wsPort: config.pusher.publicPort,
-        forceTLS: config.pusher.publicTLS,
         cluster: config.pusher.cluster,
+        wsPath: config.pusher.wsPath,
       },
     };
     res.json(cfg);
@@ -156,5 +155,21 @@ export function createHttpServer(deps: HttpDeps): http.Server {
     });
   }
 
-  return http.createServer(app);
+  const server = http.createServer(app);
+
+  // Proxy the browser's Soketi websocket through this same origin (so it
+  // inherits the page's http/https and needs no separate host/port). Requests
+  // to `${wsPath}/app/<key>` are forwarded to Soketi with the prefix stripped.
+  const soketiScheme = config.pusher.useTLS ? 'wss' : 'ws';
+  const soketiTarget = `${soketiScheme}://${config.pusher.host}:${config.pusher.port}`;
+  const wsProxy = httpProxy.createProxyServer({ target: soketiTarget, ws: true, changeOrigin: true });
+  wsProxy.on('error', (err) => console.error('soketi ws proxy error:', err.message));
+  const wsPrefix = config.pusher.wsPath;
+  server.on('upgrade', (req, socket, head) => {
+    if (!req.url || !req.url.startsWith(wsPrefix)) return;
+    req.url = req.url.slice(wsPrefix.length) || '/';
+    wsProxy.ws(req, socket, head);
+  });
+
+  return server;
 }
