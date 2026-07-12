@@ -150,7 +150,7 @@ jobs:
             --notes "ED Dashboard client ${VERSION} — double-click GUI app with config, live log, and status.
 
           - **Windows**: \`.exe\` (x64 / arm64)
-          - **macOS**: \`.app\` in a zip (x64 / arm64); first launch: right-click → Open (unsigned)
+          - **macOS**: \`.app\` in a zip (x64 / arm64). Unsigned, so clear the download quarantine once: \`xattr -cr \"/Applications/ED Dashboard Client.app\"\`, then open it.
           - **Linux**: raw binary (x64 / arm64); needs a desktop with OpenGL
 
           See the README for setup."

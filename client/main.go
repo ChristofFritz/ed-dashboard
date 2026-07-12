@@ -1,12 +1,14 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 )
 
 func main() {
@@ -42,6 +44,14 @@ func runHeadless(cfg Config, path string, created bool) {
 	if cfg.IngestToken == "" {
 		log.Fatalf("ingest_token is empty in %s — set it from the dashboard (⚙ ACCOUNT)", path)
 	}
+
+	go func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 12*time.Second)
+		defer cancel()
+		if rel := latestRelease(ctx); rel != nil && updateAvailable(version, rel.TagName) {
+			log.Printf("update available: %s — %s", rel.TagName, rel.HTMLURL)
+		}
+	}()
 
 	engine := NewEngine(
 		func(line string) { log.Println(line) },

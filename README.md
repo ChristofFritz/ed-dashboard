@@ -72,17 +72,32 @@ Download for your OS/arch from the [Releases](../../releases) page and
 double-click it:
 
 - **Windows** — `ed-dashboard-client-windows-{x64,arm64}.exe`
-- **macOS** — `ed-dashboard-client-macos-{x64,arm64}.zip` → unzip → open
-  **ED Dashboard Client.app** (first launch: right-click → Open, since it's
-  unsigned)
+- **macOS** — `ed-dashboard-client-macos-{x64,arm64}.zip` → unzip → move
+  **ED Dashboard Client.app** to Applications. It's **unsigned**, so macOS
+  quarantines it on download and refuses to open it ("damaged / can't be
+  opened"). Clear the quarantine flag once, then open it:
+
+  ```bash
+  xattr -cr "/Applications/ED Dashboard Client.app"
+  open "/Applications/ED Dashboard Client.app"
+  ```
+
+  (`xattr -cr` strips the `com.apple.quarantine` attribute recursively. You
+  only need to do this once per download.)
 - **Linux** — `ed-dashboard-client-linux-{x64,arm64}` (mark executable; needs a
   desktop with OpenGL)
 
 A window opens with the config, a Start/Stop button, a status light, and a live
-log. Paste your ingest token (from the dashboard **⚙ ACCOUNT**), check the
-journal folder, and hit **Start**. Settings are saved to
+log. Paste your ingest token (from the dashboard **⚙ ACCOUNT**), pick the
+journal folder (a ✓/⚠ hint shows whether it holds journal files, or use
+**Browse…**), and hit **Start**. Settings are saved to
 `~/.ed-dashboard/config.toml`. The default `journal_dir` is guessed per OS
 (Windows Saved Games, macOS CrossOver bottle, Linux Proton prefix).
+
+On launch the app checks GitHub for a newer release (failing silently if
+offline); when one exists, a **download** link appears at the top. Updating is
+manual — download the new build and replace the old one — because auto-replacing
+an unsigned macOS `.app` fights Gatekeeper and isn't worth the risk.
 
 ## Local development (without Docker)
 
