@@ -40,6 +40,7 @@ services:
       DATABASE_URL: postgres://ed:${POSTGRES_PASSWORD:-ed}@postgres:5432/ed
       ED_JWT_SECRET: ${ED_JWT_SECRET:-dev-insecure-change-me}
       ED_SECURE_COOKIES: ${ED_SECURE_COOKIES:-false}
+      ED_CAPI_REDIRECT_URI: ${ED_CAPI_REDIRECT_URI:-https://localhost:4200/edauthredirect}
       # Server -> Soketi (internal docker network).
       SOKETI_APP_ID: ${SOKETI_APP_ID:-ed-app}
       SOKETI_APP_KEY: ${SOKETI_APP_KEY:-ed-key}
@@ -47,7 +48,9 @@ services:
       SOKETI_HOST: soketi
       SOKETI_PORT: '6001'
     ports:
-      - '${ED_PORT:-3400}:3400'
+      # Bind address defaults to all interfaces for simple self-hosting; set
+      # ED_BIND=127.0.0.1 when a reverse proxy (Traefik/nginx) fronts it.
+      - '${ED_BIND:-0.0.0.0}:${ED_PORT:-3400}:3400'
 
 volumes:
   pgdata:
