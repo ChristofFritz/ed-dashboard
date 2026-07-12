@@ -2,11 +2,11 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"time"
 )
@@ -31,7 +31,7 @@ type ingestResponse struct {
 }
 
 // errUnauthorized is fatal — a bad/rejected ingest token. No point retrying.
-var errUnauthorized = errors.New("ingest token rejected (401) — check ingest_token in your config")
+var errUnauthorized = errors.New("ingest token rejected (401) — check your token")
 
 const maxBackoff = 30 * time.Second
 
@@ -40,22 +40,26 @@ type Ingest struct {
 	url    string
 	token  string
 	client *http.Client
+	// onAttempt is called after each POST attempt (nil = success). Lets the
+	// engine surface "connected" vs "reconnecting" without threading state.
+	onAttempt func(err error)
 }
 
-func NewIngest(serverURL, token string) *Ingest {
+func NewIngest(serverURL, token string, onAttempt func(error)) *Ingest {
 	return &Ingest{
-		url:    serverURL + "/api/ingest",
-		token:  token,
-		client: &http.Client{Timeout: 30 * time.Second},
+		url:       serverURL + "/api/ingest",
+		token:     token,
+		client:    &http.Client{Timeout: 30 * time.Second},
+		onAttempt: onAttempt,
 	}
 }
 
-func (in *Ingest) post(payload ingestPayload) (int, error) {
+func (in *Ingest) post(ctx context.Context, payload ingestPayload) (int, error) {
 	body, err := json.Marshal(payload)
 	if err != nil {
 		return 0, err
 	}
-	req, err := http.NewRequest(http.MethodPost, in.url, bytes.NewReader(body))
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, in.url, bytes.NewReader(body))
 	if err != nil {
 		return 0, err
 	}
@@ -80,19 +84,26 @@ func (in *Ingest) post(payload ingestPayload) (int, error) {
 }
 
 // Send retries transient failures with exponential backoff so nothing is
-// dropped while the server is briefly unreachable. A 401 is fatal.
-func (in *Ingest) Send(payload ingestPayload) (int, error) {
+// dropped while the server is briefly unreachable. A 401 is fatal, and a
+// cancelled context aborts promptly (returns ctx.Err()).
+func (in *Ingest) Send(ctx context.Context, payload ingestPayload) (int, error) {
 	backoff := time.Second
 	for {
-		accepted, err := in.post(payload)
+		accepted, err := in.post(ctx, payload)
+		if in.onAttempt != nil {
+			in.onAttempt(err)
+		}
 		if err == nil {
 			return accepted, nil
 		}
-		if errors.Is(err, errUnauthorized) {
+		if errors.Is(err, errUnauthorized) || errors.Is(err, context.Canceled) {
 			return 0, err
 		}
-		log.Printf("ingest error, retrying in %s: %v", backoff, err)
-		time.Sleep(backoff)
+		select {
+		case <-ctx.Done():
+			return 0, ctx.Err()
+		case <-time.After(backoff):
+		}
 		if backoff *= 2; backoff > maxBackoff {
 			backoff = maxBackoff
 		}

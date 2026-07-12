@@ -28,11 +28,14 @@ npm-workspaces monorepo, TypeScript everywhere (Node 26, see `.nvmrc`):
 
 - `shared/` — journal event types, state slice types, WS + API DTOs, journal
   line parser.
-- `client/` — a standalone **Go** binary (no runtime to install) that runs on
-  the gaming PC. Polls the journal folder + sidecar files (Status/Cargo/
-  NavRoute/Market), tracks byte offsets locally, and POSTs event batches to the
-  server's `/api/ingest` authenticated with an ingest token. Re-sends are safe
-  (server de-dupes). Config lives in `~/.ed-dashboard/config.toml`.
+- `client/` — a standalone **Go desktop app** (Fyne GUI, no runtime to install)
+  that runs on the gaming PC. A window shows the config (server URL, token,
+  journal dir), a Start/Stop control, a status indicator, and a live log. Under
+  the hood it polls the journal folder + sidecar files (Status/Cargo/NavRoute/
+  Market), tracks byte offsets locally, and POSTs event batches to the server's
+  `/api/ingest` authenticated with an ingest token. Re-sends are safe (server
+  de-dupes). Config lives in `~/.ed-dashboard/config.toml` (also editable in the
+  window). A `--headless` flag runs it without the GUI (console logging).
 - `backend/` — hosted server on port **3400**. Postgres for storage, email +
   password auth (JWT session cookie), per-user in-memory state stores hydrated
   from history on demand. Receives events over `/api/ingest`, reduces them, and
@@ -65,19 +68,21 @@ a client token.
 
 ## Running the client (on the gaming PC)
 
-Download the binary for your OS/arch from the [Releases](../../releases) page
-(Linux/macOS/Windows, x64 + arm64). Then:
+Download for your OS/arch from the [Releases](../../releases) page and
+double-click it:
 
-```bash
-./ed-dashboard-client            # first run creates ~/.ed-dashboard/config.toml
-# edit that file: set ingest_token (from the dashboard ⚙ ACCOUNT) and, if
-# needed, journal_dir for your OS
-./ed-dashboard-client            # streams your journals to the server
-```
+- **Windows** — `ed-dashboard-client-windows-{x64,arm64}.exe`
+- **macOS** — `ed-dashboard-client-macos-{x64,arm64}.zip` → unzip → open
+  **ED Dashboard Client.app** (first launch: right-click → Open, since it's
+  unsigned)
+- **Linux** — `ed-dashboard-client-linux-{x64,arm64}` (mark executable; needs a
+  desktop with OpenGL)
 
-No runtime required — it's a single static binary. The default `journal_dir`
-is guessed per OS (Windows Saved Games, macOS CrossOver bottle, Linux Proton
-prefix); override it in the config if yours differs.
+A window opens with the config, a Start/Stop button, a status light, and a live
+log. Paste your ingest token (from the dashboard **⚙ ACCOUNT**), check the
+journal folder, and hit **Start**. Settings are saved to
+`~/.ed-dashboard/config.toml`. The default `journal_dir` is guessed per OS
+(Windows Saved Games, macOS CrossOver bottle, Linux Proton prefix).
 
 ## Local development (without Docker)
 

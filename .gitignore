@@ -12,7 +12,10 @@ data/
 .env.*
 !.env.example
 
-# Locally-built Go client binaries
+# Locally-built Go client artifacts
 /client/ed-dashboard-client
 /client/ed-dashboard-client.exe
+/client/*.app/
+/client/icon.iconset/
+/client/*.icns
 /out/

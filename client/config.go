@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -18,10 +17,6 @@ type Config struct {
 	JournalDir     string `toml:"journal_dir"`
 	PollIntervalMs int    `toml:"poll_interval_ms"`
 }
-
-// ErrConfigCreated is returned by LoadConfig when it just wrote a fresh config
-// that the user still needs to fill in (the ingest token).
-var ErrConfigCreated = errors.New("config created")
 
 // ConfigDir is the ~/.ed-dashboard directory holding config + local state.
 func ConfigDir() (string, error) {
@@ -51,11 +46,10 @@ func defaultJournalDir() string {
 
 const configTemplate = `# ED Dashboard client configuration.
 #
-# 1. Create an ingest token in the dashboard (open it in a browser, then
-#    ⚙ ACCOUNT → NEW TOKEN) and paste it below.
-# 2. Point journal_dir at your Elite Dangerous journal folder if the default
-#    below is wrong for your setup.
-# 3. Run the client again.
+# You can edit these here or from the app window (they're the same file).
+#  - ingest_token comes from the dashboard: open it in a browser, then
+#    ⚙ ACCOUNT → NEW TOKEN, and paste it below.
+#  - journal_dir should point at your Elite Dangerous journal folder.
 
 # Base URL of your hosted dashboard, e.g. "https://ed.example.com".
 server_url = %q
@@ -70,43 +64,53 @@ journal_dir = %q
 poll_interval_ms = %d
 `
 
-// LoadConfig reads ~/.ed-dashboard/config.toml, creating a template on first
-// run (returning ErrConfigCreated). It validates required fields otherwise.
-func LoadConfig() (*Config, string, error) {
+func (c Config) normalized() Config {
+	c.ServerURL = strings.TrimRight(strings.TrimSpace(c.ServerURL), "/")
+	c.IngestToken = strings.TrimSpace(c.IngestToken)
+	c.JournalDir = strings.TrimSpace(c.JournalDir)
+	if c.ServerURL == "" {
+		c.ServerURL = "http://localhost:3400"
+	}
+	if c.JournalDir == "" {
+		c.JournalDir = defaultJournalDir()
+	}
+	if c.PollIntervalMs <= 0 {
+		c.PollIntervalMs = 1000
+	}
+	return c
+}
+
+// LoadOrInitConfig reads ~/.ed-dashboard/config.toml, creating a template with
+// sensible defaults on first run (created=true). It never fails on a missing
+// ingest_token — the GUI lets the user fill it in — so callers that need one
+// (headless mode) must check it themselves.
+func LoadOrInitConfig() (cfg Config, path string, created bool, err error) {
 	dir, err := ConfigDir()
 	if err != nil {
-		return nil, "", err
+		return Config{}, "", false, err
 	}
-	if err := os.MkdirAll(dir, 0o755); err != nil {
-		return nil, "", err
+	if err = os.MkdirAll(dir, 0o755); err != nil {
+		return Config{}, "", false, err
 	}
-	path := filepath.Join(dir, "config.toml")
+	path = filepath.Join(dir, "config.toml")
 
-	if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
-		body := fmt.Sprintf(configTemplate, "http://localhost:3400", "", defaultJournalDir(), 1000)
-		if err := os.WriteFile(path, []byte(body), 0o600); err != nil {
-			return nil, path, err
+	if _, statErr := os.Stat(path); os.IsNotExist(statErr) {
+		cfg = Config{ServerURL: "http://localhost:3400", JournalDir: defaultJournalDir(), PollIntervalMs: 1000}
+		if err = SaveConfig(path, cfg); err != nil {
+			return Config{}, path, false, err
 		}
-		return nil, path, ErrConfigCreated
+		return cfg, path, true, nil
 	}
 
-	cfg := &Config{}
-	if _, err := toml.DecodeFile(path, cfg); err != nil {
-		return nil, path, fmt.Errorf("parsing %s: %w", path, err)
+	if _, err = toml.DecodeFile(path, &cfg); err != nil {
+		return Config{}, path, false, fmt.Errorf("parsing %s: %w", path, err)
 	}
-	cfg.ServerURL = strings.TrimRight(strings.TrimSpace(cfg.ServerURL), "/")
-	cfg.IngestToken = strings.TrimSpace(cfg.IngestToken)
-	if cfg.PollIntervalMs <= 0 {
-		cfg.PollIntervalMs = 1000
-	}
-	if cfg.ServerURL == "" {
-		return nil, path, fmt.Errorf("server_url is empty in %s", path)
-	}
-	if cfg.IngestToken == "" {
-		return nil, path, fmt.Errorf("ingest_token is empty in %s — set it from the dashboard (⚙ ACCOUNT)", path)
-	}
-	if cfg.JournalDir == "" {
-		cfg.JournalDir = defaultJournalDir()
-	}
-	return cfg, path, nil
+	return cfg.normalized(), path, false, nil
+}
+
+// SaveConfig writes the config back out, keeping the explanatory comments.
+func SaveConfig(path string, c Config) error {
+	c = c.normalized()
+	body := fmt.Sprintf(configTemplate, c.ServerURL, c.IngestToken, c.JournalDir, c.PollIntervalMs)
+	return os.WriteFile(path, []byte(body), 0o600)
 }
