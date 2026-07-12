@@ -2,6 +2,8 @@
   "name": "ed-dashboard",
   "version": "0.1.0",
   "private": true,
+  "license": "GPL-3.0-or-later",
+  "author": "Christof Fritz",
   "workspaces": [
     "shared",
     "backend",

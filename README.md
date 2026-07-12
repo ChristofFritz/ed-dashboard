@@ -127,4 +127,8 @@ npm test
   without losing the session.
 - EDSM lookups are cached in Postgres for 24h and degrade gracefully offline.
 - All timestamps are stored as UTC (journal format) and localized in the UI.
+
+## License
+
+[GNU General Public License v3.0 or later](LICENSE) © Christof Fritz.
 ```
