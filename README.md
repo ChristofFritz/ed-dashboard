@@ -66,6 +66,40 @@ docker compose up --build
 Open http://localhost:3400, register an account, open **⚙ ACCOUNT**, and create
 a client token.
 
+### Behind a reverse proxy (hosted, HTTPS)
+
+The whole app is single-origin — the dashboard, API, and the Soketi websocket
+(`/soketi`) are all served by the backend — so a proxy only needs to forward one
+host to it, and websocket upgrades work automatically. Bind the backend to
+localhost so only the proxy reaches it, and point the proxy at it:
+
+```bash
+# .env
+ED_BIND=127.0.0.1
+ED_SECURE_COOKIES=true
+ED_CAPI_REDIRECT_URI=https://your.domain/edauthredirect
+```
+
+Example Traefik file-provider route (TLS via your resolver):
+
+```yaml
+http:
+  routers:
+    ed-helper:
+      rule: "Host(`your.domain`)"
+      entryPoints: [websecure]
+      service: ed-helper
+      tls: { certResolver: le }
+  services:
+    ed-helper:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:3400"
+```
+
+nginx equivalent needs the usual `Upgrade`/`Connection` headers so `/soketi`
+can upgrade to a websocket.
+
 ## Running the client (on the gaming PC)
 
 Download for your OS/arch from the [Releases](../../releases) page and
